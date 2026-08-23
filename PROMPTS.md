@@ -300,3 +300,13 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Vérifications :** `npm ci`, type-check, lint, test et build réussis sous Node 24.15.0 ; audit npm à 0 vulnérabilité ; périmètre Git et frontières locales contrôlés.
 - **Sortie / artefacts :** lot 01 accepté ; missions `13` et `15` archivées, la seconde comme supersédée ; revue finale déplacée dans `archives/14-revue-codex-socle-technique-lot-01.html` ; handoffs `COLLAB-20260823-CODEX-021` et `022`.
 - **Limite :** l’archivage est local. Aucun commit, push, pull request, merge ou déploiement n’est inclus dans cette clôture.
+
+### 2026-08-23 — Codex — commits et publication de la branche du socle
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** transformer le jalon accepté en historique Git révisable et publier la branche de tâche avant d’ouvrir le lot suivant.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Préparer des commits cohérents, vérifier l’état exact committé, pousser la branche courante, puis poursuivre ici avec le prochain lot.
+- **Skills utilisés :** `sentry-skills:commit` pour séparer le scaffold de la documentation publique et produire des messages conventionnels ; `orchestrate-work` pour contrôler le staging explicite, la frontière locale et la séquence de publication.
+- **Sortie :** commits `9cdf1f4` pour le socle applicatif et `93f12de` pour la documentation et les frontières locales ; branche `feat/content-wireframe-pilot` publiée sur `origin` avec suivi configuré.
+- **Vérifications :** type-check, lint, test et build réussis sous Node 24.15.0 sur l’état committé ; arbre public propre avant publication.
+- **Limite :** le push publie une branche de travail, pas une pull request, un merge dans `dev`, une release ou un déploiement.

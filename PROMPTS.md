@@ -230,3 +230,13 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Décision appliquée :** flux local `branche de tâche → dev → upcoming → main` ; branches longues créées depuis le même état stable ; travail courant déplacé sur `meta/establish-branch-workflow`.
 - **Sortie / artefacts :** `docs/GIT-WORKFLOW.md`, lien depuis le README, règles locales dans `AGENTS.md` et registre de la topologie.
 - **Limite :** aucun remote, push, merge, changement de branche par défaut, protection GitHub ou déploiement n’est inclus dans cette étape locale.
+
+### 2026-08-23 — Codex — publication et protection du workflow Git
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** publier la structure de branches validée et empêcher les modifications directes des branches longues sans rendre le projet individuel impossible à maintenir.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Passer à l’opération logique suivant la validation du workflow local : configurer le dépôt distant, publier les branches et appliquer une protection proportionnée.
+- **Décision appliquée :** `main`, `upcoming` et `dev` publiées sur le dépôt public ; `main` confirmée comme branche par défaut ; ruleset commun imposant pull request et résolution des conversations, interdisant suppression et force-push.
+- **Ajustement au contexte :** zéro approbation obligatoire et aucun check CI requis à ce stade, afin de ne pas bloquer un projet individuel sans automatisation fiable.
+- **Sortie / artefacts :** remote `origin`, branches distantes, ruleset GitHub `protect-long-lived-branches` et guide Git actualisé sur une nouvelle branche de tâche.
+- **Limite :** cette opération publie l’historique documentaire et la structure Git, pas une application, une release ou un déploiement.

@@ -104,9 +104,20 @@ Utiliser le format Conventional Commits :
 
 ## Publication distante
 
-La création locale d’une branche, un commit, un push, une pull request, un merge et un déploiement sont des états distincts. Aucun push, changement de branche par défaut ou règle de protection GitHub ne doit être déduit de ce guide.
+La création locale d’une branche, un commit, un push, une pull request, un merge et un déploiement sont des états distincts.
 
-Lorsque le remote sera configuré et que la publication sera autorisée, protéger `main`, `upcoming` et `dev`, désactiver les pushes directs et exiger les contrôles pertinents avant merge.
+État GitHub établi le 23 août 2026 :
+
+- `origin` pointe vers le dépôt public [`mrstev3n/lafiya`](https://github.com/mrstev3n/lafiya) ;
+- `main`, `upcoming` et `dev` sont publiées ;
+- `main` est la branche par défaut ;
+- le ruleset [`protect-long-lived-branches`](https://github.com/mrstev3n/lafiya/rules/21230397) s’applique aux trois branches longues ;
+- toute modification de ces branches doit passer par une pull request ;
+- les suppressions et force-pushes sont interdits ;
+- les conversations doivent être résolues avant merge ;
+- aucune approbation externe ni vérification CI n’est exigée tant que le projet reste individuel et qu’aucun contrôle automatisé fiable n’existe.
+
+Ajouter des approbations ou checks obligatoires uniquement lorsque des collaborateurs ou une CI réellement exécutable les rendent soutenables. Une règle non satisfaisable ne doit pas bloquer artificiellement le dépôt.
 
 ## Règle de mise à jour
 

@@ -178,3 +178,36 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Sortie :** `.gitignore` et un README initial créés ; dépôt local initialisé sur `main` ; paquet de premier commit limité à `.gitignore`, `README.md` et `PROMPTS.md`.
 - **Contrôles :** les chemins internes sont effectivement ignorés ; le scan des deux documents publics ne trouve ni chemin local absolu ni marqueur de secret ; aucun remote local n’a été configuré et aucun push n’a été effectué.
 - **Limite :** la stack, le code applicatif, les données finales, le déploiement et la version finale du README restent à produire et à vérifier.
+
+### 2026-08-23 — Codex — sélection visuelle, architecture et fondations candidates
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** partir de la direction visuelle 2 choisie par l’utilisateur, définir l’architecture de la landing page, identifier les opportunités visuelles utiles et préparer des fondations cohérentes avant tout build.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Retenir la direction 2 comme base à ajuster après définition de l’arborescence ; rechercher des références de sections pertinentes ; construire des primitives à partir des couleurs dominantes du visuel ; explorer une paire typographique proche de Heebo ; documenter le résultat en HTML.
+- **Skills / méthodes utiles :** `balise-visual-references` pour séparer observations, principes transférables et limites ; `font-mcp-advisor` puis `google-fonts-typography` pour la recherche de familles libres ; `ux-design-systems` et `balise-design-system` pour cadrer un kit local proportionné, distinguer primitives et rôles sémantiques, et sélectionner un flow pilote avant canonisation.
+- **Sortie / artefacts :** `10-architecture-references-systeme-visuel-v1.html` ; proposition d’une landing page à ancres en dix blocs, dont l’avis de démonstration ; recommandation Manrope + Heebo ; ancres colorimétriques extraites de la direction 2 ; rôles sémantiques et tranche pilote « éligibilité → lieu ».
+- **Ajustement humain :** la direction 2 est un choix humain ; l’architecture, la paire typographique et les tokens proposés doivent encore être validés après lecture et rendu.
+- **Limites :** le MCP Landingfolio annoncé par le service exige un jeton personnel et n’était pas configuré ; les références ont été inspectées via le catalogue public. Le scan local proposé par `font-mcp` a été refusé par la protection de confidentialité ; aucun contenu du projet n’a été transmis pour cette analyse. Aucun code, scaffold, push ou déploiement n’a été réalisé.
+
+### 2026-08-23 — Codex — hiérarchie des CTA et navigation
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** faire émerger dès le hero les deux tâches principales — évaluer sa situation et localiser un point de don — puis structurer la navigation sans transformer tous ses libellés en questions.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Placer dans le hero deux accès vers le test d’éligibilité et la recherche d’un point de don ; regrouper les contenus de navigation — initialement formulé comme « burger menu », puis corrigé en « mega menu » — ; préférer des noms de destinations clairs aux formulations interrogatives répétées.
+- **Source de contrainte :** la capture du brief confirme que le test d’éligibilité (C3) et la localisation des centres (C6) sont des contenus obligatoires. Elle a été utilisée comme preuve documentaire, distincte de la demande de conception.
+- **Skills utiles :** `balise-ux-writing` pour distinguer actions, destinations et promesses fonctionnelles ; `better-writing` pour retenir des boutons verb-first et une terminologie française stable.
+- **Interprétation initiale, corrigée ensuite :** « Faire le test d’éligibilité » et « Trouver un point de don » dans le hero ; première proposition de navigation regroupée dans un burger. La recherche Navbar Gallery documentée plus bas remplace ce dernier point par un header à deux niveaux et des mega menus.
+- **Sortie / artefacts :** architecture et gates amendés dans `10-architecture-references-systeme-visuel-v1.html` ; décision durable et handoff mis à jour.
+- **Limite :** aucune géolocalisation automatique n’est promise ; l’accessibilité et le comportement responsive du menu devront être prouvés dans le prototype.
+
+### 2026-08-23 — Codex — exploration Navbar Gallery et mega menu
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** corriger l’interprétation antérieure du burger menu, explorer des références de mega menus et produire une catégorisation plus utile des menus, sous-menus et items de dropdown.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Explorer Navbar Gallery avec `balise-visual-references`, étudier les structures de navigation et identifier des opportunités fonctionnelles pour un header Lafiya à deux niveaux.
+- **Références inspectées :** Function, Chesapeake Plywood, AccessGrid et Cloudflare dans la collection Mega Menu de Navbar Gallery.
+- **Skill utile :** `balise-visual-references` pour sélectionner des exemples complémentaires, distinguer structure et décoration, puis documenter observations, principes transférables, applications et limites.
+- **Décision proposée :** barre utilitaire pour les accès rapides ; navigation principale limitée à deux mega menus — « Avant de donner » et « Comprendre » —, un accès direct au parcours et le CTA d’éligibilité.
+- **Opportunités retenues pour prototype :** accès profond avec focus, fraîcheur des données, carte « Première fois ? » et mémoire temporaire du filtre ville. Recherche globale écartée ; numéro de téléphone conditionné à une source publique vérifiée.
+- **Sortie / artefacts :** taxonomie, références et gates ajoutées au rapport HTML ; mémoire et registre amendés.
+- **Limite :** cette recherche visuelle n’établit pas le comportement accessible ou responsive des références ; la proposition Lafiya reste à rendre et valider.

@@ -1,0 +1,59 @@
+# Lafiya — public repository boundary
+# Keep the public repository limited to the application, safe demo data,
+# README.md and PROMPTS.md. Review every new path before committing.
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Dependencies, caches and generated output
+node_modules/
+dist/
+build/
+out/
+coverage/
+.cache/
+.parcel-cache/
+.turbo/
+.vite/
+.next/
+.nuxt/
+.svelte-kit/
+.vercel/
+.netlify/
+.wrangler/
+*.log
+
+# Tool-specific local state
+.cursor/
+.opencode/
+.codex/
+
+# Project coordination and private working material
+/MEMORY.md
+/REGISTRE-COLLABORATION.md
+/missions/
+/archives/
+
+# Internal brief analysis, reviews and research drafts
+/01-depouillement-du-brief.md
+/01-depouillement-du-brief.html
+/02-plan-de-travail-v0.md
+/02-plan-de-travail-v0.html
+/03-atelier-phase-0-1.md
+/04-revue-codex-phase-0-1.html
+/06-matrice-sources-centres.md
+/07-exploration-naming-v0.html
+/08-exploration-naming-langues-v1.html

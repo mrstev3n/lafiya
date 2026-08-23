@@ -240,3 +240,73 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Ajustement au contexte :** zéro approbation obligatoire et aucun check CI requis à ce stade, afin de ne pas bloquer un projet individuel sans automatisation fiable.
 - **Sortie / artefacts :** remote `origin`, branches distantes, ruleset GitHub `protect-long-lived-branches` et guide Git actualisé sur une nouvelle branche de tâche.
 - **Limite :** cette opération publie l’historique documentaire et la structure Git, pas une application, une release ou un déploiement.
+
+### 2026-08-23 — Codex — wireframe de contenu et flow pilote
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** poursuivre depuis `dev` avec la prochaine phase logique, sans travailler directement sur la branche d’intégration ni ouvrir prématurément le build.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Se positionner sur `dev`, ouvrir la prochaine phase sur une branche de tâche et transformer l’architecture proposée en wireframe détaillé du contenu et du parcours « éligibilité → point de don ».
+- **Skills utiles :** `orchestrate-work` pour borner le travail à un livrable de conception sans délégation ni scaffold ; `sentry-skills:create-branch` pour créer `feat/content-wireframe-pilot` depuis `dev` selon le workflow approuvé.
+- **Sortie / artefacts :** `11-wireframe-contenu-flow-pilote-v1.html` ; mise à jour de la frontière locale dans `.gitignore` ; documentation du handoff dans le registre local.
+- **Ajustement humain :** les dix blocs, la double navigation, la carte secondaire et Manrope + Heebo sont rendus comme hypothèses de prototype. Ils nécessitent encore un arbitrage explicite avant la planche d’interface détaillée.
+- **Limite :** aucun framework, composant applicatif, modèle de données, déploiement ou publication n’est produit par cette phase.
+
+### 2026-08-23 — Codex — sélection visuelle et proposition technique avant code
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** conserver l’option visuelle 3 comme cible du flow pilote, puis suspendre la production afin de définir la stack, l’architecture, le modèle de données et le contrat d’exécution avant tout scaffold.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Ne pas lancer la conception codée immédiatement après le choix visuel ; produire d’abord une fiche technique détaillée et exploitable pour structurer l’ensemble du build.
+- **Skills / méthodes utiles :** `product-design:ideate` pour générer et faire sélectionner trois cibles distinctes ; `product-design:image-to-code` interrompu avant initialisation ; analyse d’architecture React/Vite et consultation de documentations officielles pour dater les recommandations.
+- **Sortie / artefacts :** option 3 retenue ; actif photographique isolé généré ; `12-proposition-technique-v1.html` créé ; aucun dossier applicatif ni dépendance initialisé.
+- **Ajustement humain :** le nombre et l’ordre exacts des sections d’accueil restent révisables après le premier prototype. La validation technique précède désormais tout code.
+- **Limite :** la stack et le déploiement sont des recommandations soumises à validation ; aucune production, publication ou connexion Vercel n’est engagée.
+
+### 2026-08-23 — Codex — mission Cursor pour le socle technique
+
+- **Outil :** Codex / GPT-Sol, mission destinée à Cursor / Grok 4.6
+- **Objectif :** transformer la proposition technique validée en un premier lot d’implémentation borné et vérifiable.
+- **Prompt adressé à Cursor :** reformulation fidèle. Initialiser uniquement React, TypeScript, Vite, les scripts de qualité, les styles de fondation et un test de démarrage ; préserver les changements Codex ; s’arrêter avant les features, les données, la reproduction visuelle, Git distant et le déploiement.
+- **Skill utile :** `orchestrate-work` — définition de l’ownership, des préconditions Git, des exclusions, des preuves et du contrat de retour, sans délégation parallèle supplémentaire.
+- **Sortie / artefact :** `missions/13-mission-cursor-socle-technique.md`, contenant le contrat complet et le prompt copiable.
+- **Limite :** l’assignation ne prouve ni démarrage ni réussite ; le résultat devra porter le statut `PRÊT POUR REVUE` jusqu’au contrôle indépendant de Codex.
+
+### 2026-08-23 — Cursor — socle technique lot 01
+
+- **Outil :** Cursor / Grok 4.6
+- **Objectif :** initialiser à la racine le lot 01 « Socle technique » : React 19.2, TypeScript 5.9, Vite 8.2, scripts de qualité, styles de fondation et un premier test observable, sans feature ni reproduction visuelle.
+- **Prompt adressé à Cursor :** reformulation fidèle. Initialiser le socle à la racine sur `feat/content-wireframe-pilot` ; préserver les changements déjà présents dans `.gitignore` et `PROMPTS.md` ; n’écrire que les fichiers de scaffold autorisés ; inspecter les deux références visuelles comme fondations futures, sans les copier ni les implémenter ; s’arrêter avant landing, simulateur, répertoire, option 3, données, Git distant et déploiement.
+- **Extraits utiles :**
+
+  > « React 19.2 »
+
+  > « TypeScript 5.9 »
+
+  > « Vite 8.2 »
+
+  > « s’arrête strictement au socle technique »
+
+- **Méthode appliquée :** contrat d’orchestration préparé par Codex — préflight Git, ownership borné, exclusions explicites et revue indépendante. `orchestrate-work` relève ici du travail de coordination de Codex, pas d’un usage direct attribué à Cursor.
+- **Sortie / artefacts :** `package.json`, `package-lock.json`, `.nvmrc`, `index.html`, configs Vite/TypeScript/ESLint, `src/app/App.tsx`, styles de fondation, `src/app/App.test.tsx` ; handoff `COLLAB-20260823-CURSOR-004`.
+- **Contrôles :** `npm install` ; `typecheck`, `lint`, `test` et `build` sans erreur ; `npm audit --omit=dev` : 0 vulnérabilité ; `dist/` contient `index.html` et les assets compilés ; `dist/` et `node_modules/` restent ignorés.
+- **Écarts :** le template officiel Vite 8.2 propose TypeScript 6.0 et oxlint ; le socle a été écrit à la racine pour conserver TypeScript 5.9 et ESLint. `@eslint/js` 10 entrait en conflit avec ESLint 9 ; la ligne 9 a été verrouillée. ESLint 9.39.5 signale une dépréciation, sans bascule silencieuse vers ESLint 10.
+- **Limite :** runtime local Node 26.3.0, cible documentée Node 24 via `.nvmrc` et `engines.node`. Aucune fonte téléchargée, aucune feature, aucun commit, push, PR ou déploiement. Le handoff n’est pas une acceptation.
+
+### 2026-08-23 — Codex — acceptation et archivage du socle technique
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** effectuer la revue indépendante du lot 01 Cursor, arbitrer la traçabilité du skill et clôturer l’activité sans reprise disproportionnée.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Considérer `orchestrate-work` comme un usage de coordination propre à Codex, accepter le résultat technique déjà vérifié, marquer l’activité comme terminée et archiver son paquet de mission.
+- **Skill utilisé :** `orchestrate-work` — vérification indépendante du handoff, séparation entre exécution Cursor et coordination Codex, alignement du verdict, du registre et des chemins d’archive.
+- **Vérifications :** `npm ci`, type-check, lint, test et build réussis sous Node 24.15.0 ; audit npm à 0 vulnérabilité ; périmètre Git et frontières locales contrôlés.
+- **Sortie / artefacts :** lot 01 accepté ; missions `13` et `15` archivées, la seconde comme supersédée ; revue finale déplacée dans `archives/14-revue-codex-socle-technique-lot-01.html` ; handoffs `COLLAB-20260823-CODEX-021` et `022`.
+- **Limite :** l’archivage est local. Aucun commit, push, pull request, merge ou déploiement n’est inclus dans cette clôture.
+
+### 2026-08-23 — Codex — commits et publication de la branche du socle
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** transformer le jalon accepté en historique Git révisable et publier la branche de tâche avant d’ouvrir le lot suivant.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Préparer des commits cohérents, vérifier l’état exact committé, pousser la branche courante, puis poursuivre ici avec le prochain lot.
+- **Skills utilisés :** `sentry-skills:commit` pour séparer le scaffold de la documentation publique et produire des messages conventionnels ; `orchestrate-work` pour contrôler le staging explicite, la frontière locale et la séquence de publication.
+- **Sortie :** commits `9cdf1f4` pour le socle applicatif et `93f12de` pour la documentation et les frontières locales ; branche `feat/content-wireframe-pilot` publiée sur `origin` avec suivi configuré.
+- **Vérifications :** type-check, lint, test et build réussis sous Node 24.15.0 sur l’état committé ; arbre public propre avant publication.
+- **Limite :** le push publie une branche de travail, pas une pull request, un merge dans `dev`, une release ou un déploiement.

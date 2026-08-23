@@ -211,3 +211,22 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Opportunités retenues pour prototype :** accès profond avec focus, fraîcheur des données, carte « Première fois ? » et mémoire temporaire du filtre ville. Recherche globale écartée ; numéro de téléphone conditionné à une source publique vérifiée.
 - **Sortie / artefacts :** taxonomie, références et gates ajoutées au rapport HTML ; mémoire et registre amendés.
 - **Limite :** cette recherche visuelle n’établit pas le comportement accessible ou responsive des références ; la proposition Lafiya reste à rendre et valider.
+
+### 2026-08-23 — Codex — structure des branches et guide Git
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** établir une progression stable entre les travaux courants, la prochaine version et la version stable, tout en isolant chaque tâche structurante.
+- **Extraits utiles :**
+
+  > « le main pour la version stable »
+
+  > « une branche dev pour la construction générale »
+
+  > « une branche upcoming [...] juste avant la version stable »
+
+  > « créer une branche lorsque il y a des tâches structurantes »
+
+- **Skills utiles :** `sentry-skills:create-branch` pour créer une branche typée sans perdre les changements en cours ; `sentry-skills:commit` pour séparer les changements en commits conventionnels ; `orchestrate-work` pour vérifier la topologie et le worktree avant mutation.
+- **Décision appliquée :** flux local `branche de tâche → dev → upcoming → main` ; branches longues créées depuis le même état stable ; travail courant déplacé sur `meta/establish-branch-workflow`.
+- **Sortie / artefacts :** `docs/GIT-WORKFLOW.md`, lien depuis le README, règles locales dans `AGENTS.md` et registre de la topologie.
+- **Limite :** aucun remote, push, merge, changement de branche par défaut, protection GitHub ou déploiement n’est inclus dans cette étape locale.

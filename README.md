@@ -43,6 +43,8 @@ The `.gitignore` encodes this initial boundary. Every new file must still be rev
 
 The implementation stack and local start command will be documented here once they are selected and verified. Until then, there is no claim that the application is runnable.
 
+The repository follows a staged branch workflow: task branches feed `dev`, validated milestones move to `upcoming`, and only accepted stable work reaches `main`. See [`docs/GIT-WORKFLOW.md`](./docs/GIT-WORKFLOW.md) for branch roles, naming, promotion gates and hotfix handling.
+
 ## Method and AI usage
 
 See [`PROMPTS.md`](./PROMPTS.md) for the project’s collaboration record across Codex, Cursor and Open Code. The log distinguishes observed prompts, reconstructed summaries, human decisions and limitations; it does not expose private chain-of-thought.

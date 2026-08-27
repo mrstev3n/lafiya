@@ -310,3 +310,13 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Sortie :** commits `9cdf1f4` pour le socle applicatif et `93f12de` pour la documentation et les frontières locales ; branche `feat/content-wireframe-pilot` publiée sur `origin` avec suivi configuré.
 - **Vérifications :** type-check, lint, test et build réussis sous Node 24.15.0 sur l’état committé ; arbre public propre avant publication.
 - **Limite :** le push publie une branche de travail, pas une pull request, un merge dans `dev`, une release ou un déploiement.
+
+### 2026-08-24 — Codex — intégration du socle et lot Domaine et données
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** intégrer le socle accepté dans `dev`, puis produire et implémenter directement le contrat du lot 02 sans délégation à Cursor ou Open Code.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Fusionner la branche du socle par pull request autorisée ; créer depuis `dev` une branche dédiée au domaine et aux données ; fournir une spécification HTML détaillée ; réaliser ensuite l’implémentation dans l’environnement Codex.
+- **Skills utilisés :** `orchestrate-work` pour séparer intégration, spécification, implémentation et revue ; `sentry-skills:pr-writer` pour la PR `#2` ; `sentry-skills:create-branch` pour `feat/domain-data-foundation` ; `sentry-skills:code-review` pour durcir les dates, les objets stricts et les tests négatifs avant acceptation.
+- **Sortie / artefacts :** PR `#2` fusionnée dans `dev` ; spécification locale `16-specification-domaine-donnees-lot-02.html` ; schémas Zod, catalogue typé, 8 centres fictifs, 8 réserves, 6 FAQ, mentions centralisées et 15 tests ; revue locale `17-revue-codex-domaine-donnees-lot-02.html`.
+- **Vérifications :** `validate:data`, type-check, lint, tests et build réussis sous Node 24.15.0 ; audit npm de production à 0 vulnérabilité ; 8 candidats, 5 villes et 8 groupes uniques contrôlés.
+- **Limite :** le lot 02 ne contient aucune interface, API, persistance ou donnée opérationnelle réelle. Il reste local, non committé et non publié à ce stade.

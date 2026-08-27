@@ -1,0 +1,56 @@
+[
+  {
+    "id": "faq-test-aptitude",
+    "question": "Le test Lafiya confirme-t-il que je peux donner ?",
+    "answer": "Non. Le test aide uniquement à se situer selon des critères simplifiés ; l’entretien et la visite médicale sur place restent indispensables pour confirmer l’aptitude.",
+    "themes": ["C2", "C3", "C8"],
+    "status": "reviewed",
+    "sourceRefs": ["https://ants.bj/eligibilite_sang"],
+    "disclaimerKeys": ["medical_eligibility"]
+  },
+  {
+    "id": "faq-criteres-simplifies",
+    "question": "Quels critères généraux sont utilisés dans la démonstration ?",
+    "answer": "La démonstration reprend l’âge de 18 à 65 ans, un poids minimal de 50 kg et un délai indicatif depuis le dernier don. D’autres contre-indications doivent être examinées par un professionnel.",
+    "themes": ["C2", "C3", "C8"],
+    "status": "reviewed",
+    "sourceRefs": ["https://ants.bj/eligibilite_sang"],
+    "disclaimerKeys": ["medical_eligibility"]
+  },
+  {
+    "id": "faq-donnees-actuelles",
+    "question": "Les lieux, horaires et réserves affichés sont-ils actuels ?",
+    "answer": "Non. Les huit lieux, leurs horaires, leurs disponibilités et les niveaux de réserves constituent un jeu fictif daté, créé uniquement pour démontrer le fonctionnement du challenge.",
+    "themes": ["C6", "C7", "C8"],
+    "status": "reviewed",
+    "sourceRefs": [],
+    "disclaimerKeys": ["challenge_demo_data", "unknown_operational_data"]
+  },
+  {
+    "id": "faq-service-officiel",
+    "question": "Lafiya est-il un service officiel de l’ANTS ?",
+    "answer": "Non. Lafiya est une expérience fictive réalisée pour un challenge de conception et de développement ; elle ne représente pas l’ANTS et ne lui est pas affiliée.",
+    "themes": ["C8"],
+    "status": "reviewed",
+    "sourceRefs": ["https://ants.bj/presentation_ants"],
+    "disclaimerKeys": ["non_affiliation"]
+  },
+  {
+    "id": "faq-visite-medicale",
+    "question": "Pourquoi la visite médicale reste-t-elle nécessaire ?",
+    "answer": "Les critères généraux ne couvrent pas toutes les situations individuelles. Le questionnaire, l’échange confidentiel et l’évaluation du professionnel protègent le donneur comme le receveur.",
+    "themes": ["C2", "C3", "C4", "C8"],
+    "status": "reviewed",
+    "sourceRefs": ["https://ants.bj/eligibilite_sang"],
+    "disclaimerKeys": ["medical_eligibility"]
+  },
+  {
+    "id": "faq-situation-non-couverte",
+    "question": "Que faire si ma situation n’est pas couverte par le test ?",
+    "answer": "Ne déduisez pas vous-même une aptitude ou une exclusion définitive. Demandez l’avis d’un professionnel de santé ou d’une structure de transfusion avant de vous déplacer.",
+    "themes": ["C2", "C3", "C8"],
+    "status": "reviewed",
+    "sourceRefs": ["https://ants.bj/eligibilite_sang"],
+    "disclaimerKeys": ["medical_eligibility", "unknown_operational_data"]
+  }
+]

@@ -1,0 +1,10 @@
+[
+  { "bloodGroup": "A+", "level": "watch", "label": "À surveiller — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "A-", "level": "low", "label": "Besoin élevé — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "B+", "level": "stable", "label": "Niveau stable — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "B-", "level": "watch", "label": "À surveiller — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "AB+", "level": "stable", "label": "Niveau stable — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "AB-", "level": "low", "label": "Besoin élevé — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "O+", "level": "watch", "label": "À surveiller — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } },
+  { "bloodGroup": "O-", "level": "low", "label": "Besoin élevé — démonstration", "provenance": { "kind": "simulated", "asOf": "2026-08-24", "disclaimerKey": "challenge_demo_data", "verifiedBy": "codex", "confidence": "demo", "expiresAt": "2026-09-24" } }
+]

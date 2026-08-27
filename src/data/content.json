@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "datasetLabel": "Jeu de démonstration Lafiya — 24 août 2026",
+  "disclaimers": {
+    "challenge_demo_data": "Données entièrement simulées pour le challenge Lafiya ; elles ne décrivent ni les horaires, ni les stocks, ni l’ouverture actuelle d’une structure réelle.",
+    "medical_eligibility": "Le test Lafiya est éducatif et indicatif ; seul l’entretien préalable avec un professionnel de santé peut confirmer l’aptitude au don.",
+    "non_affiliation": "Lafiya est un projet fictif de challenge et n’est ni un service officiel ni une plateforme affiliée à l’ANTS.",
+    "unknown_operational_data": "Cette information opérationnelle n’a pas été établie par une source actuelle et doit être confirmée auprès de la structure concernée."
+  },
+  "reserveLevelLabels": {
+    "low": "Besoin élevé — démonstration",
+    "watch": "À surveiller — démonstration",
+    "stable": "Niveau stable — démonstration"
+  }
+}

@@ -12,4 +12,13 @@
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-sans: Inter, Manrope, Heebo, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --motion-enter-duration: 560ms;
+  --motion-stagger: 80ms;
+  --motion-distance: 28px;
+  --motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-section-duration: 640ms;
+  --motion-section-stagger: 90ms;
+  --motion-section-distance: 20px;
+  --motion-section-rise: 18px;
+  --motion-ease-section: cubic-bezier(0.22, 0.68, 0.28, 1);
 }

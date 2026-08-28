@@ -8,7 +8,14 @@
 .content { align-items: flex-start; display: flex; flex-direction: column; justify-content: center; min-height: 27rem; position: relative; z-index: 2; }
 .content h2 { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5rem); font-weight: 500; letter-spacing: -0.04em; line-height: 0.98; }
 .content > div { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
-.heartLine { bottom: -3.5rem; left: 0; position: absolute; z-index: 1; }
+.heartLine {
+  --heart-line-delay: 360ms;
+  --heart-line-duration: 1.35s;
+  bottom: -2.25rem;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+}
 .footer { background: #001c2b; padding-top: 3.7rem; }
 .grid { display: grid; gap: 3rem; grid-template-columns: 1.5fr repeat(3, 1fr); padding-bottom: 3.2rem; }
 .brand > a { color: white; font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; text-decoration: none; }
@@ -27,6 +34,7 @@
 
 @media (max-width: 840px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
+  .heartLine { bottom: -0.2rem; }
   .content > div { align-items: stretch; flex-direction: column; width: 100%; }
   .overlay { background: rgba(0, 14, 32, 0.72); }
   .grid { grid-template-columns: 1fr; }

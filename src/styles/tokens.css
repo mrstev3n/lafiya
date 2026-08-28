@@ -2,8 +2,14 @@
   --color-nuit: #000e20;
   --color-lagune: #04343a;
   --color-papaye: #ef5a18;
+  --color-papaye-clair: #ff8b58;
+  --color-papaye-sombre: #cf4510;
   --color-papier: #f7f4f2;
   --color-brume: #dde6eb;
-  --font-manrope: Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-heebo: Heebo, ui-sans-serif, system-ui, sans-serif;
+  --color-ligne: rgba(0, 14, 32, 0.14);
+  --color-texte-doux: #56636c;
+  --container: 90rem;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: Inter, Manrope, Heebo, ui-sans-serif, system-ui, -apple-system, sans-serif;
 }

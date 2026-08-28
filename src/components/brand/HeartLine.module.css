@@ -1,0 +1,28 @@
+.line {
+  color: var(--color-papaye);
+  display: block;
+  height: 11rem;
+  pointer-events: none;
+  width: 100%;
+}
+
+.line path {
+  fill: none;
+  stroke: currentColor;
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .line path {
+    animation: draw-heart-line 1.8s ease-out both;
+  }
+}
+
+@keyframes draw-heart-line {
+  from { stroke-dashoffset: 1500; }
+  to { stroke-dashoffset: 0; }
+}

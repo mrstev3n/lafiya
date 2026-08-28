@@ -1,0 +1,57 @@
+.media {
+  transform: scaleX(-1);
+}
+
+.transitionStripes {
+  backdrop-filter: blur(13px) saturate(135%);
+  background: rgb(255 255 255 / 0.16);
+  inset: -8% -35%;
+  -webkit-mask-image: repeating-linear-gradient(
+    132deg,
+    #000 0 9%,
+    rgb(0 0 0 / 0.72) 9% 14%,
+    transparent 14% 24%
+  );
+  mask-image: repeating-linear-gradient(
+    132deg,
+    #000 0 9%,
+    rgb(0 0 0 / 0.72) 9% 14%,
+    transparent 14% 24%
+  );
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translate3d(-72%, 0, 0);
+  will-change: opacity, transform;
+  z-index: 1;
+}
+
+.transitionStripesActive {
+  animation: glass-stripes-sweep 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes glass-stripes-sweep {
+  0% {
+    opacity: 0;
+    transform: translate3d(-72%, 0, 0);
+  }
+
+  24% {
+    opacity: 0.82;
+  }
+
+  62% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(72%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transitionStripes {
+    display: none;
+  }
+}

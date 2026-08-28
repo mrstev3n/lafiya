@@ -10,32 +10,24 @@ import {
 
 describe('catalogue de données Lafiya', () => {
   it('valide le catalogue complet', () => {
-    expect(dataCatalogue.centres).toHaveLength(8)
+    expect(dataCatalogue.centres).toHaveLength(4)
     expect(dataCatalogue.reserves).toHaveLength(8)
     expect(dataCatalogue.faq.length).toBeGreaterThanOrEqual(4)
   })
 
-  it('couvre huit candidats dans cinq villes', () => {
-    expect(new Set(centres.map((centre) => centre.candidateReference)).size).toBe(8)
-    expect(new Set(centres.map((centre) => centre.cityId)).size).toBe(5)
-    expect(centres.every((centre) => centre.structureType === 'demo')).toBe(true)
+  it('couvre quatre lieux officiels dans trois villes', () => {
+    expect(new Set(centres.map((centre) => centre.officialId)).size).toBe(4)
+    expect(new Set(centres.map((centre) => centre.cityId)).size).toBe(3)
+    expect(centres.every((centre) => centre.sourceUrl === 'https://ants.bj/lieu_sang')).toBe(true)
+    expect(centres.every((centre) => centre.provenance.kind === 'public_fact')).toBe(true)
+    expect(centres.every((centre) => centre.provenance.confidence === 'confirmed')).toBe(true)
   })
 
-  it('qualifie chaque donnée opérationnelle comme simulation datée', () => {
+  it('conserve pour chaque lieu des coordonnées et une date de mise à jour', () => {
     for (const centre of centres) {
-      const provenances = [
-        centre.identityProvenance,
-        centre.address.provenance,
-        centre.schedule.provenance,
-        centre.donationOffer.provenance,
-        centre.availability.provenance,
-      ]
-
-      for (const provenance of provenances) {
-        expect(provenance.kind).toBe('simulated')
-        expect(provenance.asOf).toMatch(/^\d{4}-\d{2}-\d{2}$/)
-        expect(provenance.disclaimerKey).toBe('challenge_demo_data')
-      }
+      expect(centre.latitude).toBeGreaterThan(6)
+      expect(centre.longitude).toBeGreaterThan(2)
+      expect(centre.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)
     }
   })
 
@@ -91,17 +83,17 @@ describe('catalogue de données Lafiya', () => {
       verifiedBy: 'codex',
       confidence: 'demo',
     })
-    const centreWithContact = {
+    const centreWithUnexpectedContact = {
       ...centresJson[0],
       contact: { phone: '+229 00 00 00 00' },
     }
 
     expect(invalidDate.success).toBe(false)
-    expect(donationCentresSchema.safeParse([centreWithContact, ...centresJson.slice(1)]).success).toBe(false)
+    expect(donationCentresSchema.safeParse([centreWithUnexpectedContact, ...centresJson.slice(1)]).success).toBe(false)
   })
 
   it('rejette les doublons de centre et de groupe sanguin', () => {
-    const duplicateCentres = [...centresJson.slice(0, 7), centresJson[0]]
+    const duplicateCentres = [...centresJson.slice(0, 3), centresJson[0]]
     const duplicateReserves = [...reservesJson.slice(0, 7), reservesJson[0]]
 
     expect(donationCentresSchema.safeParse(duplicateCentres).success).toBe(false)

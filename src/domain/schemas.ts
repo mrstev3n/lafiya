@@ -1,7 +1,6 @@
 import { z } from 'zod'
 
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/
-const timePattern = /^([01]\d|2[0-3]):[0-5]\d$/
 
 export const isoDateSchema = z
   .string()
@@ -77,91 +76,56 @@ const simulatedProvenanceSchema = dataProvenanceSchema.refine(
   'Une provenance simulée est obligatoire.',
 )
 
-const qualifiedTextSchema = z.object({
-  label: z.string().min(1),
-  provenance: simulatedProvenanceSchema,
-}).strict()
-
-const schedulePeriodSchema = z
-  .object({
-    days: z.array(z.enum(['mon', 'tue', 'wed', 'thu', 'fri', 'sat'])).min(1),
-    opensAt: z.string().regex(timePattern),
-    closesAt: z.string().regex(timePattern),
-  })
-  .strict()
-  .refine((period) => period.opensAt < period.closesAt, {
-    message: "L'heure de fermeture doit suivre l'ouverture.",
-    path: ['closesAt'],
-  })
-
-const qualifiedScheduleSchema = z.object({
-  periods: z.array(schedulePeriodSchema).min(1),
-  note: z.string().min(1),
-  provenance: simulatedProvenanceSchema,
-}).strict()
-
-const donationOfferSchema = z.object({
-  donationTypes: z.array(z.enum(['whole_blood', 'plasma', 'platelets'])).min(1),
-  appointmentMode: z.enum(['walk_in_demo', 'appointment_demo', 'mixed_demo']),
-  provenance: simulatedProvenanceSchema,
-}).strict()
-
-const availabilitySchema = z.object({
-  status: z.enum(['available_demo', 'limited_demo', 'unavailable_demo']),
-  provenance: simulatedProvenanceSchema,
-}).strict()
+const publicFactProvenanceSchema = dataProvenanceSchema.refine(
+  (value) => value.kind === 'public_fact',
+  'Une provenance de fait public est obligatoire.',
+)
 
 export const cityIdSchema = z.enum([
   'cotonou',
   'abomey-calavi',
   'porto-novo',
-  'ouidah',
-  'seme-kpodji',
 ])
 
-export const donationCentreSchema = z.object({
-  id: z.string().regex(/^centre-demo-[a-z0-9-]+-\d{2}$/),
-  candidateReference: z.enum([
-    'GN-01',
-    'GN-02',
-    'GN-03',
-    'GN-04',
-    'GN-05',
-    'GN-06',
-    'GN-07',
-    'GN-08',
-  ]),
-  displayName: z.string().regex(/démonstration/i),
-  cityId: cityIdSchema,
-  structureType: z.literal('demo'),
-  modelledStructureType: z.enum(['sdts', 'pts', 'blood_bank', 'sts_or_pts', 'sdts_or_sts']),
-  modelSourceRefs: z.array(z.url()).min(1),
-  candidateCaveat: z.string().min(20),
-  identityProvenance: simulatedProvenanceSchema,
-  address: qualifiedTextSchema,
-  schedule: qualifiedScheduleSchema,
-  donationOffer: donationOfferSchema,
-  availability: availabilitySchema,
-}).strict()
+export const donationCentreSchema = z
+  .object({
+    id: z.string().regex(/^ants-\d+$/),
+    officialId: z.number().int().positive(),
+    displayName: z.string().min(3),
+    cityId: cityIdSchema,
+    structureType: z.enum(['sts', 'pts']),
+    address: z.string().min(10),
+    latitude: z.number().min(6).max(13),
+    longitude: z.number().min(0).max(4),
+    sourceUrl: z.url(),
+    publishedAt: isoDateSchema,
+    updatedAt: isoDateSchema,
+    provenance: publicFactProvenanceSchema,
+  })
+  .strict()
+  .superRefine((centre, context) => {
+    if (centre.provenance.sourceUrl !== centre.sourceUrl) {
+      context.addIssue({
+        code: 'custom',
+        path: ['provenance', 'sourceUrl'],
+        message: 'La provenance doit reprendre la source du lieu.',
+      })
+    }
+  })
 
 export const donationCentresSchema = z
   .array(donationCentreSchema)
-  .length(8)
+  .length(4)
   .superRefine((centres, context) => {
     const ids = new Set(centres.map((centre) => centre.id))
-    const references = new Set(centres.map((centre) => centre.candidateReference))
-    const cities = new Set(centres.map((centre) => centre.cityId))
+    const officialIds = new Set(centres.map((centre) => centre.officialId))
 
     if (ids.size !== centres.length) {
       context.addIssue({ code: 'custom', message: 'Les identifiants de centres doivent être uniques.' })
     }
 
-    if (references.size !== centres.length) {
-      context.addIssue({ code: 'custom', message: 'Les références GN doivent être uniques.' })
-    }
-
-    if (cities.size !== 5) {
-      context.addIssue({ code: 'custom', message: 'Le catalogue doit couvrir exactement cinq villes.' })
+    if (officialIds.size !== centres.length) {
+      context.addIssue({ code: 'custom', message: 'Les identifiants ANTS doivent être uniques.' })
     }
   })
 

@@ -1,4 +1,18 @@
-.shell {
+.app {
   min-height: 100vh;
-  padding: 2rem;
+  overflow: clip;
+}
+
+.skipLink {
+  background: white;
+  color: var(--color-nuit);
+  left: 1rem;
+  padding: 0.8rem 1rem;
+  position: fixed;
+  top: -5rem;
+  z-index: 100;
+}
+
+.skipLink:focus {
+  top: 1rem;
 }

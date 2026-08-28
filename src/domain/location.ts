@@ -4,9 +4,9 @@ export function getCityIds(centres: readonly DonationCentre[]): string[] {
   return [...new Set(centres.map((centre) => centre.cityId))]
 }
 
-export function getCentreByCandidateReference(
+export function getCentreByOfficialId(
   centres: readonly DonationCentre[],
-  candidateReference: DonationCentre['candidateReference'],
+  officialId: DonationCentre['officialId'],
 ): DonationCentre | undefined {
-  return centres.find((centre) => centre.candidateReference === candidateReference)
+  return centres.find((centre) => centre.officialId === officialId)
 }

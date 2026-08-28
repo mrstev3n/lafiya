@@ -320,3 +320,72 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Sortie / artefacts :** PR `#2` fusionnée dans `dev` ; spécification locale `16-specification-domaine-donnees-lot-02.html` ; schémas Zod, catalogue typé, 8 centres fictifs, 8 réserves, 6 FAQ, mentions centralisées et 15 tests ; revue locale `17-revue-codex-domaine-donnees-lot-02.html`.
 - **Vérifications :** `validate:data`, type-check, lint, tests et build réussis sous Node 24.15.0 ; audit npm de production à 0 vulnérabilité ; 8 candidats, 5 villes et 8 groupes uniques contrôlés.
 - **Limite :** le lot 02 ne contient aucune interface, API, persistance ou donnée opérationnelle réelle. Il reste local, non committé et non publié à ce stade.
+
+### 2026-08-27 — Codex — intégration du lot 02 et spécification du lot 03
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** transformer le lot Domaine et données accepté en historique révisable, l’intégrer dans `dev`, puis cadrer le shell Navigation et structure avant toute nouvelle implémentation.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Découper les changements du lot 02 en commits cohérents, publier et fusionner la branche par pull request, repartir de `dev` sur une branche dédiée, puis produire le contrat HTML détaillé du lot 03. L’implémentation du lot 03 reste fermée jusqu’à revue humaine de cette spécification.
+- **Skills utilisés :** `orchestrate-work` pour séparer la clôture Git et la conception suivante ; `sentry-skills:commit`, `sentry-skills:pr-writer` et `sentry-skills:create-branch` pour le workflow Git ; `balise-design-system` pour limiter les fondations aux usages du shell ; `better-accessibility` pour préciser sémantique, clavier, focus, dialog mobile, zoom et mouvement réduit.
+- **Sortie / artefacts :** commits `5f66bd0` et `000aee7` ; PR `#3` fusionnée dans `dev` au commit `dab193a` ; branche `feat/navigation-structure` ; spécification locale `18-specification-navigation-structure-lot-03.html`.
+- **Décision de lecture visuelle :** la direction 2 « Lien vital » gouverne la marque et l’atmosphère ; l’option 3 gouverne la hiérarchie fonctionnelle. Les coordonnées et données visibles dans les images ne sont pas reprises.
+- **Limite :** aucune ligne de code du lot 03, aucune promotion vers `upcoming` ou `main` et aucun déploiement dans cette opération.
+
+### 2026-08-27 — Codex — exploration de l’architecture éditoriale Lafiya
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** enrichir la navigation, les destinations et les sections de la homepage à partir d’une référence santé appréciée, puis confronter les opportunités visuelles à des données officielles liées au don de sang.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Étudier la capture complète et le site Function Health pour identifier les principes transférables — header épuré, étapes, catalogue, témoignages vidéo, chiffres, équipe, comparaison, FAQ et CTA final — sans copier leur contenu. Rechercher des preuves adaptées au Bénin et à l’Afrique, puis proposer une structure Lafiya crédible, des pages futures et des mécanismes de réassurance.
+- **Skills utilisés :** `orchestrate-work` pour borner une exploration sans délégation ni code ; `balise-visual-references` pour séparer observation, principe et adaptation ; `lawve-source-verification` pour conserver le périmètre, la date et les limites de chaque donnée ; navigateur interne pour inspecter Function Health et les pages officielles de l’ANTS.
+- **Sortie / artefacts :** `19-exploration-architecture-editoriale-preuves-lot-03.html` ; proposition de quatre libellés principaux, cinq routes futures, neuf blocs de homepage et trois preuves chiffrées sourcées.
+- **Décisions proposées :** remplacer « Avant de donner » par « Donner » et « Le don pas à pas » par « Le parcours » ; réserver dans le template quatre capsules vidéo de donneurs et une bande présentant les personnes derrière l’initiative, avec un contrat d’assets pour leur remplacement en production ; remplacer le comparatif monétaire non démontré par une comparaison entre orientation Lafiya et confirmation médicale.
+- **Limite :** l’exploration reste à arbitrer et ne modifie pas encore la spécification 18. Elle n’autorise aucune implémentation, publication ni reprise d’assets de la référence.
+
+### 2026-08-27 — Codex — système de CTA et résultats positifs du test
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** harmoniser les menus avec les boutons d’action, approfondir les résultats du test d’éligibilité et laisser le parcours déterminer le nombre pertinent de sections d’accueil.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Tenir compte du CTA d’éligibilité dans le naming du header ; définir les libellés de tous les boutons importants ; produire pour chaque résultat du test une explication personnalisée, une date calculée quand elle est possible et une action positive immédiate ; placer les lieux officiels de don plus haut dans la homepage ; ne plus traiter neuf blocs comme une limite ; chercher un signal final qui détourne une phrase familière comme le fait Function Health.
+- **Skills utilisés :** `orchestrate-work` pour traiter navigation, test et homepage comme un système unique ; `balise-ux-writing` pour distinguer destinations, actions, résultats, explications et voies de continuation.
+- **Sortie / artefacts :** mise à jour de `19-exploration-architecture-editoriale-preuves-lot-03.html` avec un vocabulaire navigation–CTA, six modèles de résultat, une recommandation de date de naissance, onze modules proposés et un contrat de carte pour les lieux de don.
+- **Décisions proposées :** navigation « Le don · Points de don · Témoignages · Comprendre » ; CTA principal « Vérifier mon éligibilité » ; CTA secondaire « Trouver où donner » ; signal final « Chaque minute compte. Chaque don aussi. ».
+- **Limite :** ces décisions enrichissent l’exploration ; la spécification 18 et le code restent inchangés jusqu’à arbitrage humain.
+
+### 2026-08-27 — Codex — gate image-first et trois homepages complètes
+
+- **Outil :** Codex / GPT-Sol + génération d’images intégrée
+- **Objectif :** mettre la spécification 18 au niveau des décisions validées, puis comparer plusieurs directions complètes avant toute implémentation du lot 03.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Adopter une approche image-to-code ; générer au moins trois variantes de la homepage entière, ou des groupes de sections cohérents si le plein format n’est pas exploitable ; conserver une passe complète par variante ; traiter les anciennes directions comme des indications seulement ; laisser la nouvelle structure recomposer le hero, les dispositions, le copywriting et les opportunités de vidéo de fond.
+- **Skills utilisés :** `orchestrate-work` pour séparer choix de direction, extraction sectionnelle et code ; `imagegen` pour produire trois vues raster complètes ; `image-to-code` pour imposer une source visuelle avant code et réserver la génération sectionnelle à la direction retenue.
+- **Sorties / artefacts :** spécification 18 mise à jour ; `20-comparatif-directions-homepage-lot-03.html` ; variantes A cinématographique humaine, B éditoriale chaleureuse et C civique orientée données dans `visual-explorations/lot-03-homepage/`.
+- **Méthode retenue :** trois vues complètes servent au choix de direction ; après arbitrage, une nouvelle image lisible est générée pour chaque section ou groupe court de la direction choisie. Les vues complètes ne sont pas recadrées pour l’extraction.
+- **Recommandation Codex :** variante B comme base, avec la possibilité de renforcer ensuite le motif de lien de A et la précision des modules de données de C dans une nouvelle passe visuelle.
+- **Limite :** aucun code applicatif, aucune dépendance, aucun commit, aucun push et aucune publication.
+
+### 2026-08-27 — Codex — direction Lafiya retenue et extraction sectionnelle
+
+- **Outil :** Codex / GPT-Sol + génération d’images intégrée
+- **Objectif :** transformer le choix humain en un corpus visuel sectionnel explicite, sans confondre les trois pages de comparaison avec la direction finale.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Partir du socle cinématique humain, reprendre seulement certaines structures plus simples des autres pistes, préserver les réinterprétations approuvées et ajuster le rythme clair/sombre. Le hero validé reste inchangé ; sa bande basse immédiate doit reprendre une liste compacte en trois actions. L’équipe et la FAQ restent sobres ; le footer reprend la composition compacte de référence et reçoit une barre légale basse.
+- **Extraits utiles :**
+
+  > « Mon choix se tourne vers A comme base. »
+
+  > « Il y a des sections qui n'ont pas besoin d'être trop éditoriales. »
+
+  > « La première partie du hero section avait déjà été validée. »
+
+- **Skills utilisés :** `imagegen` pour produire des références fraîches par section ; `image-to-code` pour maintenir le gate visuel avant implémentation ; `orchestrate-work` pour séparer arbitrage, génération, revue documentaire et futur code.
+- **Sorties / artefacts :** onze références dans `visual-explorations/lot-03-homepage/selected-a-plus/` ; mise à jour des spécifications 18 et 20 ; rapport `21-direction-lafiya-retenue-lot-03.html`.
+- **Ajustement humain :** les lettres A/B/C sont abandonnées dans la suite opérationnelle au profit de « Cinématique humaine », « Éditoriale claire », « Civique modulaire » et « Direction Lafiya retenue ». Les témoignages réinterprétés sont conservés ; éligibilité, parcours, besoins, équipe, FAQ, above the fold et footer sont simplifiés selon les références explicitement retenues. Le bloc d’impact revient lui aussi à une bande sombre compacte : introduction et trois preuves, sans graphique, photographie ni pictogramme.
+- **Limite :** le corpus reste en revue humaine finale. Aucun code applicatif, commit, push ou déploiement n’est inclus.
+
+### 2026-08-28 — Codex — implémentation et calibration de la homepage Lafiya
+
+- **Outil :** Codex / GPT-Sol
+- **Objectif :** transformer la direction sectionnelle acceptée en expérience responsive navigable, puis intégrer durablement les réglages visuels validés pendant la calibration.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Implémenter la homepage et ses pages liées dans l’environnement principal ; appliquer les retours annotés sur la navigation, la carte, les contenus, les médias et les comportements responsive ; utiliser DialKit seulement comme surface temporaire d’ajustement ; inscrire toute valeur acceptée dans les styles de production sans laisser le tuner devenir la source de vérité.
+- **Ajustements humains déterminants :** maintien de la composition visuelle retenue ; hero fixé à une échelle de `1` et une position `68% 86%` ; voile de lecture figé par quatre points de gradient ; suppression des mentions de démonstration inutiles dans l’interface ; navigation mobile regroupée ; carte interactive ; accordéon FAQ exclusif.
+- **Sortie / artefacts :** homepage en onze sections, routes éditoriales, header responsive avec mega menus, carte Leaflet, quatre lieux ANTS sourcés, médias sélectionnés et outil de calibration chargé uniquement en développement.
+- **Vérifications :** type-check, lint, 17 tests et build de production sous Node 24.15.0 ; validation structurée des provenances et données du catalogue.
+- **Limite :** DialKit reste temporairement installé pour les prochaines calibrations mais ses valeurs validées sont déjà permanentes dans le CSS. Aucun merge vers `dev`, promotion, déploiement ou publication stable n’est inclus dans cette étape.

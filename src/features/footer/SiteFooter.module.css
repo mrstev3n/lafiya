@@ -1,0 +1,35 @@
+.shell { margin-inline: auto; max-width: var(--container); padding-inline: var(--gutter); }
+.section { background: var(--color-nuit); color: white; }
+.cta { min-height: 27rem; overflow: hidden; position: relative; }
+.cta > img,
+.overlay { height: 100%; inset: 0; object-fit: cover; object-position: center 43%; position: absolute; width: 100%; }
+.cta > img { transform: scaleX(-1); }
+.overlay { background: linear-gradient(90deg, rgba(0, 14, 32, 0.96) 0%, rgba(0, 14, 32, 0.63) 43%, rgba(0, 14, 32, 0.05) 72%, transparent 100%); }
+.content { align-items: flex-start; display: flex; flex-direction: column; justify-content: center; min-height: 27rem; position: relative; z-index: 2; }
+.content h2 { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5rem); font-weight: 500; letter-spacing: -0.04em; line-height: 0.98; }
+.content > div { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+.heartLine { bottom: -3.5rem; left: 0; position: absolute; z-index: 1; }
+.footer { background: #001c2b; padding-top: 3.7rem; }
+.grid { display: grid; gap: 3rem; grid-template-columns: 1.5fr repeat(3, 1fr); padding-bottom: 3.2rem; }
+.brand > a { color: white; font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; text-decoration: none; }
+.brand > a span { color: var(--color-papaye); }
+.brand p { color: rgba(255, 255, 255, 0.56); font-size: 0.8rem; margin-top: 0.7rem; max-width: 13rem; }
+.grid nav,
+.grid > div:last-child { display: grid; gap: 0.55rem; }
+.grid strong { font-size: 0.74rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+.grid a,
+.grid span,
+.legal a { color: rgba(255, 255, 255, 0.58); font-size: 0.75rem; text-decoration: none; }
+.grid a:hover,
+.legal a:hover { color: white; }
+.legal { align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.45); display: flex; font-size: 0.69rem; justify-content: space-between; min-height: 4.5rem; }
+.legal nav { display: flex; gap: 1.4rem; }
+
+@media (max-width: 840px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .content > div { align-items: stretch; flex-direction: column; width: 100%; }
+  .overlay { background: rgba(0, 14, 32, 0.72); }
+  .grid { grid-template-columns: 1fr; }
+  .legal { align-items: flex-start; flex-direction: column; gap: 0.8rem; padding-block: 1.2rem; }
+  .legal nav { flex-wrap: wrap; gap: 0.7rem 1rem; }
+}

@@ -10,8 +10,8 @@
   },
   {
     "id": "faq-criteres-simplifies",
-    "question": "Quels critères généraux sont utilisés dans la démonstration ?",
-    "answer": "La démonstration reprend l’âge de 18 à 65 ans, un poids minimal de 50 kg et un délai indicatif depuis le dernier don. D’autres contre-indications doivent être examinées par un professionnel.",
+    "question": "Quels critères généraux sont pris en compte ?",
+    "answer": "Le parcours prend notamment en compte l’âge, le poids et le délai depuis le dernier don. D’autres situations doivent être examinées directement avec un professionnel.",
     "themes": ["C2", "C3", "C8"],
     "status": "reviewed",
     "sourceRefs": ["https://ants.bj/eligibilite_sang"],
@@ -19,21 +19,21 @@
   },
   {
     "id": "faq-donnees-actuelles",
-    "question": "Les lieux, horaires et réserves affichés sont-ils actuels ?",
-    "answer": "Non. Les huit lieux, leurs horaires, leurs disponibilités et les niveaux de réserves constituent un jeu fictif daté, créé uniquement pour démontrer le fonctionnement du challenge.",
+    "question": "À quelle fréquence les informations sont-elles mises à jour ?",
+    "answer": "Chaque bloc de données affiche sa dernière date de mise à jour. Les lieux proviennent de la publication de l’ANTS et les niveaux de réserve sont conçus pour être rafraîchis depuis une source administrée.",
     "themes": ["C6", "C7", "C8"],
     "status": "reviewed",
-    "sourceRefs": [],
-    "disclaimerKeys": ["challenge_demo_data", "unknown_operational_data"]
+    "sourceRefs": ["https://ants.bj/lieu_sang"],
+    "disclaimerKeys": ["unknown_operational_data"]
   },
   {
-    "id": "faq-service-officiel",
-    "question": "Lafiya est-il un service officiel de l’ANTS ?",
-    "answer": "Non. Lafiya est une expérience fictive réalisée pour un challenge de conception et de développement ; elle ne représente pas l’ANTS et ne lui est pas affiliée.",
-    "themes": ["C8"],
+    "id": "faq-trouver-point",
+    "question": "Comment choisir le point de don le plus proche ?",
+    "answer": "Sélectionnez votre ville dans la liste, puis consultez la carte interactive et l’adresse de chaque structure avant votre déplacement.",
+    "themes": ["C6", "C8"],
     "status": "reviewed",
-    "sourceRefs": ["https://ants.bj/presentation_ants"],
-    "disclaimerKeys": ["non_affiliation"]
+    "sourceRefs": ["https://ants.bj/lieu_sang"],
+    "disclaimerKeys": ["unknown_operational_data"]
   },
   {
     "id": "faq-visite-medicale",

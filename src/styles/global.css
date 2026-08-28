@@ -10,26 +10,47 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--color-papier);
   color: var(--color-nuit);
-  font-family: var(--font-heebo);
+  font-family: var(--font-sans);
   line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-manrope);
+body.menu-open {
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-papaye);
+  outline: 3px solid var(--color-papaye);
   outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-papaye);
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

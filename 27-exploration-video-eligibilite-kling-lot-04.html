@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Lafiya — Exploration vidéo « Puis-je donner ? »</title>
+  <style>
+    :root {
+      --navy: #00152a;
+      --navy-2: #002d43;
+      --teal: #075a5d;
+      --orange: #ff5b18;
+      --paper: #f6f3ea;
+      --mist: #dfece8;
+      --ink: #102739;
+      --muted: #60717d;
+      --line: rgba(16, 39, 57, .14);
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    header { color: var(--white); background: radial-gradient(circle at 78% 20%, rgba(7, 90, 93, .75), transparent 38%), var(--navy); padding: 34px 0 72px; }
+    nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 72px; }
+    nav a { color: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 7px 12px; text-decoration: none; font-size: 13px; }
+    .eyebrow { color: var(--orange); font-weight: 750; letter-spacing: .09em; text-transform: uppercase; font-size: 12px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-family: Georgia, serif; font-size: clamp(48px, 7vw, 90px); font-weight: 400; letter-spacing: -.055em; line-height: .95; max-width: 920px; margin: 15px 0 26px; }
+    .lead { color: rgba(255,255,255,.72); font-size: clamp(18px, 2vw, 24px); max-width: 760px; }
+    .verdict { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,.14); margin-top: 44px; }
+    .verdict div { background: rgba(0,21,42,.66); padding: 22px; }
+    .verdict small { color: rgba(255,255,255,.58); display: block; text-transform: uppercase; letter-spacing: .08em; }
+    .verdict strong { color: white; display: block; font-size: 24px; margin-top: 6px; }
+    main section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 140px 1fr; gap: 28px; margin-bottom: 34px; }
+    .index { color: var(--orange); font-weight: 800; }
+    h2 { font-family: Georgia, serif; font-size: clamp(36px, 5vw, 64px); font-weight: 400; letter-spacing: -.04em; line-height: 1; margin-bottom: 15px; }
+    h3 { font-size: 18px; line-height: 1.25; }
+    .intro { color: var(--muted); max-width: 740px; font-size: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card { grid-column: span 4; background: white; border: 1px solid var(--line); border-radius: 16px; padding: 25px; }
+    .card.wide { grid-column: span 8; }
+    .card.full { grid-column: 1 / -1; }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .status { display: inline-flex; color: var(--teal); background: var(--mist); border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .06em; padding: 5px 9px; text-transform: uppercase; margin-bottom: 14px; }
+    .status.orange { color: white; background: var(--orange); }
+    .source-card { padding: 0; overflow: hidden; }
+    .source-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+    .source-card div { padding: 22px; }
+    .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .fact { background: var(--paper); border-radius: 12px; padding: 16px; }
+    .fact b { display: block; font-size: 22px; }
+    .fact span { color: var(--muted); font-size: 13px; }
+    .shotboard { background: var(--navy); color: white; border-radius: 22px; padding: 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .shot { min-width: 0; }
+    .frame { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 13px; background: linear-gradient(155deg, #d7e6d9 0 42%, #c6a980 42%); border: 1px solid rgba(255,255,255,.17); }
+    .frame::before { content: ""; position: absolute; inset: 8% 10% 34%; background: rgba(255,255,255,.68); border-radius: 100% 100% 12% 12%; filter: blur(10px); }
+    .person { position: absolute; left: 50%; bottom: -8%; width: var(--person-width); aspect-ratio: .52; translate: -50% 0; }
+    .person::before { content: ""; position: absolute; width: 32%; aspect-ratio: 1; border-radius: 50%; background: #6c3d2e; left: 34%; top: 0; box-shadow: 0 -8px 0 2px #c8aa86; }
+    .person::after { content: ""; position: absolute; inset: 24% 9% 0; border-radius: 45% 45% 8% 8%; background: #efe8db; }
+    .thumb { display: none; position: absolute; right: 13%; top: 45%; width: 17%; height: 24%; background: #6c3d2e; border-radius: 999px; rotate: -13deg; z-index: 2; }
+    .thumb::after { content: ""; position: absolute; width: 55%; height: 48%; border-radius: 999px; background: #6c3d2e; top: -25%; left: 1%; rotate: 20deg; transform-origin: bottom; }
+    .shot:nth-child(4) .thumb, .shot:nth-child(5) .thumb { display: block; }
+    .shot small { color: rgba(255,255,255,.5); display: block; margin-top: 10px; }
+    .shot b { display: block; line-height: 1.3; }
+    .timeline { margin-top: 20px; display: grid; grid-template-columns: .4fr 2.4fr .7fr .7fr .8fr; border-radius: 999px; overflow: hidden; }
+    .timeline span { color: white; background: var(--teal); border-right: 1px solid rgba(255,255,255,.22); font-size: 11px; padding: 8px 6px; text-align: center; }
+    .timeline span:nth-child(2) { background: #137477; }
+    .timeline span:nth-child(4) { background: var(--orange); }
+    .timeline span:last-child { background: #b94618; border: 0; }
+    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--line); }
+    th, td { padding: 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    tr:last-child td { border-bottom: 0; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    pre { background: var(--navy); color: #eaf4f1; border-radius: 18px; padding: 24px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; line-height: 1.7; }
+    .callout { color: white; background: var(--teal); border-radius: 18px; padding: 26px; }
+    .callout strong { display: block; font-size: 24px; margin-bottom: 7px; }
+    .callout p:last-child { margin-bottom: 0; }
+    .result-media { overflow: hidden; background: var(--navy); border-radius: 20px; }
+    .result-media video, .result-media img { display: block; width: 100%; }
+    .result-media video { aspect-ratio: 1; object-fit: cover; }
+    .result-copy { padding: 22px; color: white; }
+    .result-copy p { color: rgba(255,255,255,.7); margin-bottom: 0; }
+    .decision { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; color: white; background: var(--navy); border-radius: 20px; padding: 30px; }
+    .decision b { color: var(--orange); }
+    .decision span { color: rgba(255,255,255,.68); }
+    .button { display: inline-flex; color: white; background: var(--orange); border-radius: 999px; padding: 12px 18px; text-decoration: none; font-weight: 750; white-space: nowrap; }
+    footer { padding: 38px 0 54px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 820px) {
+      .verdict { grid-template-columns: repeat(2, 1fr); }
+      .section-head { grid-template-columns: 1fr; gap: 5px; }
+      .card, .card.wide { grid-column: 1 / -1; }
+      .shotboard { grid-template-columns: repeat(2, 1fr); }
+      .shot:last-child { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; }
+      .timeline { display: none; }
+      .decision { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      header { padding-bottom: 50px; }
+      nav { margin-bottom: 46px; }
+      .verdict, .facts { grid-template-columns: 1fr; }
+      .shotboard { grid-template-columns: 1fr; }
+      .shot:last-child { grid-column: auto; width: 100%; }
+      main section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell">
+      <nav aria-label="Sommaire">
+        <a href="#contexte">Contexte</a><a href="#scene">Scène</a><a href="#cout">Crédits</a><a href="#prompt">Prompt</a><a href="#resultat">Résultat</a><a href="#web">Web</a><a href="#decision">Décision</a>
+      </nav>
+      <span class="eyebrow">Exploration motion · Lot 04 · 28 août 2026</span>
+      <h1>Donner du mouvement à « Puis-je donner ? »</h1>
+      <p class="lead">Une capsule silencieuse, humaine et rassurante : la femme s’approche, se stabilise, lève le pouce et laisse apparaître un sourire. Un premier master Kling 3.0 est désormais disponible pour arbitrage.</p>
+      <div class="verdict">
+        <div><small>Modèle retenu</small><strong>Kling 3.0</strong></div>
+        <div><small>Fichier livré</small><strong>1440 × 1440</strong></div>
+        <div><small>Durée recommandée</small><strong>6 secondes</strong></div>
+        <div><small>Audio</small><strong>Désactivé</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="contexte">
+      <div class="shell">
+        <div class="section-head"><div class="index">01 · Point de départ</div><div><h2>Le portrait actuel n’est pas encore un plan de départ.</h2><p class="intro">Il donne le visage, la tenue, la lumière et l’environnement. Son cadrage est toutefois déjà proche : il ne peut pas devenir spontanément un medium long shot sans reconstruire ce qui se trouve hors champ.</p></div></div>
+        <div class="grid">
+          <article class="card source-card wide"><img src="public/assets/images/eligibility-portrait-v2.png" alt="Portrait source de la section d’éligibilité"><div><span class="status">Référence d’identité</span><h3>À utiliser pour préserver la femme, pas comme première image du clip</h3><p>Le visage est déjà en medium close-up. L’employer directement comme start frame imposerait un départ trop proche et inverserait la trajectoire souhaitée.</p></div></article>
+          <article class="card"><span class="status orange">Constat produit</span><h3>Cadre actuel</h3><div class="facts"><div class="fact"><b>39 rem</b><span>hauteur minimale desktop</span></div><div class="fact"><b>26 rem</b><span>hauteur minimale mobile</span></div><div class="fact"><b>1856 × 2304</b><span>portrait source</span></div><div class="fact"><b>1:1</b><span>master vidéo le plus robuste</span></div></div></article>
+          <article class="card full"><span class="status">Route recommandée</span><h3>Préparer un start frame élargi, puis animer</h3><p>Importer le portrait local dans Magnific, produire une seule recomposition fidèle en plan américain / medium long shot, cadrée en 1:1 et conservant exactement le visage, le foulard, la blouse claire, la lumière chaude et l’environnement. Utiliser ensuite cette image comme <em>start frame</em> et le portrait original comme référence de personnage pour Kling 3.0.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene">
+      <div class="shell">
+        <div class="section-head"><div class="index">02 · Beat sheet</div><div><h2>Une action continue, cinq états seulement.</h2><p class="intro">Six secondes forment le meilleur compromis entre fluidité et coût. Cinq secondes restent possibles, mais compriment le ralentissement du corps, la levée du pouce et la tenue du sourire ; sept secondes apporteraient peu de valeur supplémentaire dans une section parcourue au scroll.</p></div></div>
+        <div class="shotboard" aria-label="Storyboard abstrait en cinq temps">
+          <div class="shot"><div class="frame"><div class="person" style="--person-width:32%"></div></div><small>0,0–0,6 s</small><b>Installation en medium long shot</b></div>
+          <div class="shot"><div class="frame"><div class="person" style="--person-width:42%"></div></div><small>0,6–3,3 s</small><b>Deux pas calmes vers la caméra</b></div>
+          <div class="shot"><div class="frame"><div class="person" style="--person-width:52%"></div></div><small>3,3–4,1 s</small><b>Stabilisation et regard caméra</b></div>
+          <div class="shot"><div class="frame"><div class="person" style="--person-width:58%"><i class="thumb"></i></div></div><small>4,1–4,9 s</small><b>Pouce levé à hauteur de poitrine</b></div>
+          <div class="shot"><div class="frame"><div class="person" style="--person-width:60%"><i class="thumb"></i></div></div><small>4,9–6,0 s</small><b>Sourire léger et tenue finale</b></div>
+        </div>
+        <div class="timeline" aria-hidden="true"><span>Pause</span><span>Approche</span><span>Settle</span><span>Geste</span><span>Hold</span></div>
+        <div class="grid" style="margin-top:22px">
+          <article class="card"><h3>Caméra</h3><p>Plan continu, caméra stable avec un push-in très discret. Le changement d’échelle vient principalement des pas de la femme, pas d’un zoom spectaculaire.</p></article>
+          <article class="card"><h3>Corps</h3><p>Poids naturel, épaules relâchées, deux pas maximum. Le pouce arrive après l’arrêt afin d’éviter une gestuelle mécanique ou un bras flottant.</p></article>
+          <article class="card"><h3>Expression</h3><p>Regard direct seulement à l’arrivée. Le sourire augmente légèrement après le pouce ; pas de rire, de lèvres parlantes ni d’enthousiasme publicitaire.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cout">
+      <div class="shell">
+        <div class="section-head"><div class="index">03 · Compte et coût</div><div><h2>Un premier essai représente environ 1,3 % du solde.</h2><p class="intro">Les chiffres de compte proviennent du connecteur Magnific. Le tarif vidéo est celui de la documentation Magnific consultée le 28 août 2026 : Kling 3.0 1080p, 90 crédits par seconde.</p></div></div>
+        <table>
+          <thead><tr><th>Élément</th><th>Crédits</th><th>Part du solde</th><th>Décision</th></tr></thead>
+          <tbody>
+            <tr><td>Solde Premium+ après rendu</td><td><strong>41 066 disponibles</strong><br>45 000 plan · 3 934 dépensés</td><td>—</td><td>L’illimité n’est pas applicable aux générations via MCP.</td></tr>
+            <tr><td>Clip Kling 3.0 · 5 s · 1080p</td><td>450 estimés</td><td>1,08 %</td><td>Plancher économique, mais rythme plus contraint.</td></tr>
+            <tr><td>Clip Kling 3.0 · 6 s · 1080p</td><td><strong>540 débités</strong></td><td>1,30 %</td><td>Premier candidat produit.</td></tr>
+            <tr><td>Deux essais de 6 s</td><td>1 080 estimés</td><td>2,59 %</td><td>Plafond vidéo conseillé pour cette exploration.</td></tr>
+            <tr><td>Start frame élargi</td><td><strong>75 débités</strong></td><td>0,18 %</td><td>Une seule préparation Nano Banana Pro.</td></tr>
+            <tr><td>Total de cette exploration générative</td><td><strong>615 débités</strong></td><td>1,48 %</td><td>Moins que le plafond autorisé.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout" style="margin-top:20px"><strong>615 crédits consommés ; aucun second clip lancé.</strong><p>Le premier rendu est conservé pour arbitrage. Les 540 crédits vidéo restants du plafond ne doivent être engagés que si le sourire final ou l’amplitude de la marche justifie réellement une reprise.</p></div>
+      </div>
+    </section>
+
+    <section id="prompt">
+      <div class="shell">
+        <div class="section-head"><div class="index">04 · Contrat de génération</div><div><h2>Le prompt doit protéger la continuité plus que chercher l’effet.</h2><p class="intro">Le modèle sélectionné est le slug Magnific <code>kling-30</code>. Le catalogue live confirme 1:1, 1080p, 6 s, start/end frames, références d’image et son désactivable.</p></div></div>
+        <pre>Single continuous shot, no cuts. Preserve the exact identity, age, dark-brown skin tone, natural facial texture, headwrap, light cream blouse and warm outdoor clinic environment of the reference woman.
+
+At the start, she is shown in a medium-long shot with natural headroom and both hands visible. She walks two calm, relaxed steps toward the camera. The camera remains stable with only a very subtle slow push-in, ending in a natural medium shot. She settles her weight, looks directly into the lens, raises her right hand into a compact thumbs-up gesture at chest height, then gives a small warm reassuring smile. Hold the final pose briefly.
+
+Natural daylight, realistic Beninese features, documentary healthcare photography, shallow but stable depth of field, realistic walking physics, anatomically correct hands and fingers, restrained reassuring mood.
+
+No dialogue, no lip movement, no sound effects, no music, no scene change, no cut, no sudden zoom, no camera shake, no waving, no exaggerated grin, no beauty smoothing, no plastic skin, no wardrobe change, no duplicated limbs, no extra fingers, no text, no logo.</pre>
+        <div class="grid">
+          <article class="card"><h3>Paramètres</h3><p><code>slug: kling-30</code><br><code>duration: 6</code><br><code>resolution: 1080p</code><br><code>aspectRatio: 1:1</code><br><code>withSoundEffects: false</code></p></article>
+          <article class="card"><h3>Références</h3><p>Start frame élargi en 1:1 + portrait original comme référence. Aucun end frame pour le premier test : laisser le modèle construire le geste sans forcer une main artificielle.</p></article>
+          <article class="card"><h3>Rejet immédiat</h3><p>Identité qui dérive, sourire commercial, pouce déformé, démarche glissée, arrière-plan qui respire, recadrage brutal ou accélération irréaliste.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultat">
+      <div class="shell">
+        <div class="section-head"><div class="index">05 · Premier rendu</div><div><h2>Le mouvement fonctionne ; le sourire dépasse légèrement le brief.</h2><p class="intro">Le master dure 6,04 s, contient 145 images à 24 i/s et se décode sans erreur. Le rapprochement est continu, le visage reste stable et le pouce se forme correctement. Sur la dernière seconde, le sourire devient franc et montre les dents : il est chaleureux, mais moins retenu que demandé.</p></div></div>
+        <div class="grid">
+          <article class="card wide result-media">
+            <video controls muted playsinline preload="metadata" poster="visual-explorations/lot-04-video-eligibility/eligibility-start-frame-1x1.png">
+              <source src="visual-explorations/lot-04-video-eligibility/eligibility-kling-30-1080p-6s-master.mp4" type="video/mp4">
+            </video>
+            <div class="result-copy"><h3>Master Kling 3.0 · 6,04 s</h3><p>1440 × 1440 · H.264 Main · 24 i/s · sans piste audio · 11,6 Mo.</p></div>
+          </article>
+          <article class="card source-card"><img src="visual-explorations/lot-04-video-eligibility/eligibility-start-frame-1x1.png" alt="Start frame carré de la femme en plan américain"><div><span class="status">Start frame</span><h3>Identité et cadrage validés</h3><p>Plan éloigné, mains visibles, décor cohérent et aucune gestuelle prématurée.</p></div></article>
+          <article class="card full source-card"><img src="visual-explorations/lot-04-video-eligibility/eligibility-kling-30-contact-sheet.jpg" alt="Planche de dix-huit images du rendu Kling 3.0"><div><span class="status">Contrôle temporel</span><h3>Dix-huit états répartis sur le clip</h3><p>La progression d’échelle reste continue. La main se stabilise sans anatomie parasite ; l’intensité du sourire constitue le seul arbitrage créatif restant.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="web">
+      <div class="shell">
+        <div class="section-head"><div class="index">06 · Comportement futur</div><div><h2>Jouer une fois, puis laisser respirer.</h2><p class="intro">Une boucle dure rendrait visible le saut entre le pouce final et le plan éloigné initial. La vidéo doit se comporter comme une scène révélée au scroll, pas comme un fond perpétuellement animé.</p></div></div>
+        <div class="grid">
+          <article class="card"><span class="status">Lecture</span><h3>Déclenchement à l’entrée</h3><p>Lecture muette et <code>playsInline</code> lorsque 55 à 65 % du média est visible. Une seule lecture par visite de page, puis maintien de l’image finale.</p></article>
+          <article class="card"><span class="status">Fallback</span><h3>Poster et mouvement réduit</h3><p>Afficher un poster optimisé avant décodage. Sous <code>prefers-reduced-motion</code> ou Data Saver, conserver le poster sans lancer la vidéo.</p></article>
+          <article class="card"><span class="status">Livraison</span><h3>Master et dérivés web</h3><p>Conserver le 1080p source. Dériver MP4 H.264 et WebM sans piste audio, avec fast start, puis viser environ 1 à 2,5 Mo après contrôle visuel.</p></article>
+          <article class="card full"><h3>Accessibilité</h3><p>La scène n’ajoute aucune information indispensable : le titre, l’explication, le CTA et la légende restent le contenu accessible. La vidéo peut être masquée aux technologies d’assistance ; aucune piste audio, aucun texte incrusté et aucun contrôle requis pour une lecture unique décorative.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="decision">
+      <div class="shell">
+        <div class="section-head"><div class="index">07 · Gate</div><div><h2>Le premier clip est assez solide pour une décision humaine.</h2><p class="intro">Verdict technique : GO. Verdict motion provisoire : GO avec réserve mineure sur le sourire final. Acceptation créative : ouverte.</p></div></div>
+        <div class="decision"><div><b>Décision attendue</b><br><span>Accepter ce premier clip comme base, demander une seconde génération au sourire plus retenu, ou revenir sur l’amplitude de la marche. Aucune intégration au composant ne sera engagée avant cet arbitrage.</span></div><a class="button" href="#resultat">Voir le rendu</a></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="shell">Étude locale Lafiya · un start frame et un clip générés ; aucune intégration, modification de composant, publication, commit ou push.</div></footer>
+</body>
+</html>

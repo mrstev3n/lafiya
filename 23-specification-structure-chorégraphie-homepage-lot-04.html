@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lafiya — Structure et chorégraphie de la homepage · Lot 04</title>
+  <style>
+    :root{--night:#000e20;--lagoon:#04343a;--paper:#f7f4f2;--mist:#dde6eb;--orange:#ef5a18;--orange-soft:#ff8b58;--ink:#10212c;--muted:#5a6871;--line:rgba(0,14,32,.14);--green:#8dd3c7;--amber:#f6bf63}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eee9e3;color:var(--ink);font:16px/1.58 Inter,Manrope,system-ui,sans-serif}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-weight:500;line-height:1.04}.shell{width:min(1380px,calc(100% - 80px));margin:auto}.hero{min-height:680px;padding:84px 0 68px;background:linear-gradient(112deg,var(--night) 0%,#001b35 54%,#075260 150%);color:white}.kicker{margin-bottom:28px;color:var(--orange-soft);font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.hero h1{max-width:1050px;margin-bottom:26px;font-size:clamp(58px,8vw,108px);letter-spacing:-.055em}.lead{max-width:880px;color:#cbd7de;font-size:21px}.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:54px;border:1px solid #ffffff28;background:#ffffff28}.meta div{padding:18px;background:#031c2d}.meta small{display:block;color:#8fa7b3}.meta strong{display:block;margin-top:5px}.notice{margin-top:28px;padding:18px 20px;border-left:4px solid var(--orange);background:#ffffff0d;color:#d8e3e8}.toc{position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line);background:rgba(247,244,242,.94);backdrop-filter:blur(16px)}.toc .shell{display:flex;gap:24px;overflow:auto;padding-block:15px}.toc a{flex:none;color:inherit;font-size:13px;font-weight:750;text-decoration:none}.section{padding:74px 0}.section:nth-of-type(even){background:white}.sectionHead{display:grid;grid-template-columns:72px minmax(0,1fr);gap:24px;margin-bottom:34px}.index{color:var(--orange);font:50px/1 Georgia,serif}.section h2{max-width:980px;margin-bottom:14px;font-size:clamp(38px,5vw,58px);letter-spacing:-.035em}.intro{max-width:930px;color:var(--muted);font-size:18px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{padding:24px;border:1px solid var(--line);background:var(--paper)}.card h3{font-size:25px}.card p:last-child{margin-bottom:0}.good{border-top:4px solid var(--lagoon)}.avoid{border-top:4px solid var(--orange)}.token{font:700 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--lagoon)}table{width:100%;border-collapse:collapse;background:white}th,td{padding:15px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--lagoon);color:white;font-size:13px;letter-spacing:.04em}td small{display:block;margin-top:6px;color:var(--muted)}code{padding:2px 6px;background:#e4ebe9;font:13px ui-monospace,SFMono-Regular,Menlo,monospace}.motionMap{display:grid;gap:12px}.scene{display:grid;grid-template-columns:175px 1fr;gap:24px;padding:22px;border:1px solid var(--line);background:white}.scene strong{font-size:14px;letter-spacing:.08em;text-transform:uppercase}.beats{display:flex;align-items:center;gap:9px;overflow:auto}.beat{flex:none;min-width:132px;padding:13px 15px;border-radius:999px;background:#e7eeed;text-align:center;font-size:13px;font-weight:750}.arrow{color:var(--orange);font-weight:900}.timeline{display:grid;grid-template-columns:120px 1fr;gap:15px;margin-top:28px}.track{position:relative;height:48px;border-radius:8px;background:#e0e7e6}.bar{position:absolute;top:8px;height:32px;border-radius:6px;background:var(--lagoon);color:white;font-size:12px;line-height:32px;text-align:center}.bar.alt{background:var(--orange)}.bar.soft{background:#6b9298}.score{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.score div{padding:18px;background:var(--night);color:white}.score strong{display:block;font-size:30px}.score span{color:#afc2ca;font-size:13px}.decision{margin-top:24px;padding:24px;border-left:5px solid var(--orange);background:var(--lagoon);color:white}.decision strong{display:block;margin-bottom:7px;color:var(--orange-soft)}.rejected{margin:0;padding-left:22px}.rejected li{margin-bottom:12px}.gate{display:inline-flex;padding:7px 10px;border-radius:999px;background:#e3eee9;color:#145749;font-size:12px;font-weight:800}.gate.no{background:#f6e2db;color:#8c3214}.footer{padding:32px 0;background:var(--night);color:#aabdc6}.footer strong{color:white}@media(max-width:850px){.shell{width:min(100% - 32px,1380px)}.meta,.grid,.score{grid-template-columns:1fr 1fr}.sectionHead,.scene{grid-template-columns:1fr}.index{font-size:34px}.timeline{grid-template-columns:1fr}}@media(max-width:560px){.meta,.grid,.score{grid-template-columns:1fr}.hero{min-height:auto;padding-top:60px}.hero h1{font-size:55px}.section{padding:54px 0}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <p class="kicker">Lafiya · Lot 04 · Gate avant implémentation</p>
+      <h1>Faire entrer les blocs.<br>Pas les sections.</h1>
+      <p class="lead">La homepage reste immédiatement lisible. Le mouvement organise l’apparition de ses unités internes — titres, textes, médias, cartes et actions — pour construire une progression calme, humaine et intentionnelle.</p>
+      <div class="meta">
+        <div><small>Branche locale</small><strong>feat/homepage-motion-choreography</strong></div>
+        <div><small>Base</small><strong>dev · 8cc3165</strong></div>
+        <div><small>Surface</small><strong>Homepage uniquement</strong></div>
+        <div><small>Implémentation</small><strong>Fermée jusqu’à validation</strong></div>
+      </div>
+      <div class="notice"><strong>Thèse de mouvement.</strong> Comme un lien qui se tend, les blocs arrivent principalement depuis l’extrémité droite et trouvent leur place dans le plan de lecture. Les séquences compactes progressent par chevauchement ; les données utiles ne bougent jamais une fois lisibles.</div>
+    </div>
+  </header>
+
+  <nav class="toc"><div class="shell"><a href="#cadrage">Cadrage</a><a href="#structure">Structure</a><a href="#langage">Langage motion</a><a href="#carte">Carte des blocs</a><a href="#opportunites">Opportunités</a><a href="#rejets">Rejets</a><a href="#technique">Contrat technique</a><a href="#acceptation">Acceptation</a></div></nav>
+
+  <main>
+    <section class="section" id="cadrage"><div class="shell">
+      <div class="sectionHead"><div class="index">01</div><div><h2>Contexte, objectif et non-objectifs</h2><p class="intro">Le lot 03 a installé une homepage complète et fonctionnelle dans <code>dev</code>. Le lot 04 vise une version assez consolidée pour préparer une promotion future vers <code>upcoming</code>, sans ouvrir le simulateur ni enrichir le répertoire.</p></div></div>
+      <div class="grid">
+        <article class="card good"><h3>Objectif</h3><p>Renforcer la structure perçue de certains blocs et donner à la page un rythme d’entrée reconnaissable, sans modifier les décisions visuelles déjà figées.</p></article>
+        <article class="card good"><h3>Résultat attendu</h3><p>Une chorégraphie interne, progressive et performante, observable sur desktop et mobile, avec une alternative de mouvement réduit conçue.</p></article>
+        <article class="card avoid"><h3>Pas de reveal global</h3><p>Aucune section entière ne part de <code>opacity: 0</code>. Le contenu essentiel ne dépend jamais d’un observateur JavaScript pour exister.</p></article>
+        <article class="card avoid"><h3>Pas de redesign silencieux</h3><p>Ni nouvel ordre de sections, ni nouvelle palette, ni remplacement d’asset, ni recomposition majeure sans un arbitrage visuel séparé.</p></article>
+        <article class="card avoid"><h3>Pas de spectacle continu</h3><p>Pas de parallax généralisé, de suivi de curseur, de scroll-jacking, de texte animé en permanence ou de mouvement sur chaque carte.</p></article>
+        <article class="card avoid"><h3>Pas de promotion implicite</h3><p>Ce lot ne pousse, ne fusionne et ne promeut rien vers <code>upcoming</code> ou <code>main</code> sans gates et autorisations distincts.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section" id="structure"><div class="shell">
+      <div class="sectionHead"><div class="index">02</div><div><h2>Conserver l’architecture, renforcer trois ensembles</h2><p class="intro">L’audit ne justifie pas de changer l’ordre général. La consolidation porte sur les relations entre blocs déjà présents.</p></div></div>
+      <table><thead><tr><th>Ensemble</th><th>Structure retenue</th><th>Ajustement proposé</th><th>Limite</th></tr></thead><tbody>
+        <tr><td>Conviction</td><td>Hero → parcours rapide → bande de preuves</td><td>Traiter ces trois surfaces comme une ouverture en trois temps, tout en conservant leurs sections DOM séparées.</td><td>Le parcours rapide ne devient ni un carousel ni un bloc éditorial lourd.</td></tr>
+        <tr><td>Orientation</td><td>Éligibilité → lieux</td><td>Faire de l’éligibilité le premier split narratif ; laisser le localisateur entrer presque statiquement pour préserver son caractère fonctionnel.</td><td>La carte et les centres ne sont pas mis en scène item par item.</td></tr>
+        <tr><td>Réassurance</td><td>Parcours + préparation → besoins → témoignages → équipe → FAQ</td><td>Conserver parcours et préparation dans un même module ; réserver les séquences riches au parcours et aux témoignages.</td><td>Réserves, équipe et FAQ restent sobres.</td></tr>
+        <tr><td>Conclusion</td><td>CTA final → footer</td><td>Créer un écho au hero avec texte, actions et ligne de cœur, sans rejouer toute l’ouverture.</td><td>Le footer utilitaire ne reçoit aucune entrée séquentielle.</td></tr>
+      </tbody></table>
+    </div></section>
+
+    <section class="section" id="langage"><div class="shell">
+      <div class="sectionHead"><div class="index">03</div><div><h2>Un langage commun, quatre intensités</h2><p class="intro">La cohérence vient d’un petit vocabulaire partagé. Les variations portent sur l’ordre et l’intensité, pas sur une nouvelle courbe pour chaque bloc.</p></div></div>
+      <div class="grid">
+        <article class="card"><p class="token">ENTRÉE PRINCIPALE</p><h3>Depuis l’extrémité droite</h3><p><code>translateX(28px) → 0</code> et <code>opacity: 0 → 1</code>, 560 ms, <code>cubic-bezier(.22,1,.36,1)</code>. Sur mobile : 18 px.</p></article>
+        <article class="card"><p class="token">ENTRÉE DOUCE</p><h3>Fade de soutien</h3><p><code>opacity: 0 → 1</code>, 360 ms. Pour les paragraphes secondaires, légendes ou éléments qui ne doivent pas concurrencer le titre.</p></article>
+        <article class="card"><p class="token">MÉDIA</p><h3>Décalage et stabilisation</h3><p><code>translateX(36px) → 0</code> et fade, 680 ms. Aucun zoom automatique sur les portraits déjà calibrés.</p></article>
+        <article class="card"><p class="token">INTERACTION</p><h3>Réponse rapide</h3><p>150–250 ms pour menu, accordéon, chevron et press feedback. L’interaction ne doit jamais attendre la fin d’une animation narrative.</p></article>
+        <article class="card"><p class="token">STAGGER</p><h3>Chevauchement, pas file d’attente</h3><p>60–80 ms entre cartes compactes ; 90–120 ms entre blocs narratifs. Maximum 4 blocs simultanés sur desktop et 2 sur mobile.</p></article>
+        <article class="card"><p class="token">RÉPÉTITION</p><h3>Une seule lecture</h3><p>Les entrées de scroll ne se rejouent pas en remontant. Le hero ne rejoue qu’après une navigation/recharge réelle, jamais à chaque retour dans le viewport.</p></article>
+      </div>
+      <div class="decision"><strong>Direction logique</strong>« Droite vers gauche » désigne le déplacement visuel depuis l’extrémité de la ligne vers la position finale. L’ordre des blocs suit toujours l’ordre de lecture français. Les propriétés logiques permettront d’inverser le geste si une interface RTL est introduite.</div>
+    </div></section>
+
+    <section class="section" id="carte"><div class="shell">
+      <div class="sectionHead"><div class="index">04</div><div><h2>Carte de chorégraphie interne</h2><p class="intro">Chaque séquence démarre quand son premier bloc devient suffisamment visible. La section elle-même reste rendue et lisible.</p></div></div>
+      <div class="motionMap">
+        <div class="scene"><strong>Hero · première vue</strong><div class="beats"><span class="beat">Titre ligne 1</span><span class="arrow">→</span><span class="beat">Titre ligne 2</span><span class="arrow">→</span><span class="beat">Promesse</span><span class="arrow">→</span><span class="beat">CTA groupés</span><span class="arrow">→</span><span class="beat">Ligne cœur</span></div></div>
+        <div class="scene"><strong>Parcours rapide</strong><div class="beats"><span class="beat">Vérifier</span><span class="arrow">→</span><span class="beat">Choisir</span><span class="arrow">→</span><span class="beat">Préparer</span></div></div>
+        <div class="scene"><strong>Preuves</strong><div class="beats"><span class="beat">Intro</span><span class="arrow">→</span><span class="beat">3 min</span><span class="arrow">→</span><span class="beat">118 010</span><span class="arrow">→</span><span class="beat">5,2 / 1 000</span></div></div>
+        <div class="scene"><strong>Éligibilité</strong><div class="beats"><span class="beat">Eyebrow</span><span class="arrow">→</span><span class="beat">Titre</span><span class="arrow">→</span><span class="beat">Explication</span><span class="arrow">→</span><span class="beat">CTA</span><span class="arrow">↔</span><span class="beat">Portrait</span></div></div>
+        <div class="scene"><strong>Parcours du don</strong><div class="beats"><span class="beat">Titre</span><span class="arrow">→</span><span class="beat">5 cartes · 70 ms</span><span class="arrow">→</span><span class="beat">Préparation</span><span class="arrow">→</span><span class="beat">3 conseils</span></div></div>
+        <div class="scene"><strong>Témoignages</strong><div class="beats"><span class="beat">Titre + intro</span><span class="arrow">→</span><span class="beat">Femme</span><span class="arrow">→</span><span class="beat">Homme</span><span class="arrow">→</span><span class="beat">Femme</span><span class="arrow">→</span><span class="beat">Homme</span></div></div>
+        <div class="scene"><strong>CTA final</strong><div class="beats"><span class="beat">Phrase</span><span class="arrow">→</span><span class="beat">CTA groupés</span><span class="arrow">→</span><span class="beat">Ligne cœur</span></div></div>
+      </div>
+      <div class="timeline"><strong>Exemple · 0–900 ms</strong><div class="track"><span class="bar" style="left:0;width:48%">Titre · 560 ms</span><span class="bar alt" style="left:13%;width:46%">Bloc suivant</span><span class="bar soft" style="left:31%;width:54%">Média · 680 ms</span></div></div>
+    </div></section>
+
+    <section class="section" id="opportunites"><div class="shell">
+      <div class="sectionHead"><div class="index">05</div><div><h2>Sept opportunités qui passent le filtre</h2><p class="intro">Chaque proposition répond à un objectif identifiable. Les valeurs seront des tokens partagés, pas des nombres dispersés dans les composants.</p></div></div>
+      <table><thead><tr><th>#</th><th>Localisation</th><th>Aujourd’hui</th><th>But</th><th>Fréquence</th><th>Mouvement proposé</th></tr></thead><tbody>
+        <tr><td>1</td><td><code>HomePage.tsx:96–139</code></td><td>Hero et trois actions apparaissent immédiatement ; seule la ligne est animée.</td><td>Explication + rare delight</td><td>Première vue</td><td>Entrée interne en 5 temps ; 560 ms, décalage 28 px, stagger 100 ms ; parcours rapide à 70 ms. La ligne commence après la lisibilité des CTA.</td></tr>
+        <tr><td>2</td><td><code>HomePage.tsx:142–164</code></td><td>Les preuves forment une bande compacte mais arrivent comme un seul plan.</td><td>Explication</td><td>Occasionnelle</td><td>Intro puis trois faits en chevauchement, translation 20 px + fade, 480 ms, stagger 70 ms. Aucun compteur numérique.</td></tr>
+        <tr><td>3</td><td><code>HomePage.tsx:167–179</code></td><td>Le split texte/portrait est statique.</td><td>Hiérarchie + prévention d’un changement abrupt</td><td>Occasionnelle</td><td>Copy en 4 temps depuis l’extrémité ; portrait décalé de 36 px, 680 ms, départ 140 ms après le titre. Pas de zoom.</td></tr>
+        <tr><td>4</td><td><code>HomePage.tsx:192–218</code></td><td>Les cinq étapes et trois conseils apparaissent ensemble.</td><td>Explication du parcours</td><td>Occasionnelle</td><td>Titre puis cartes à 70 ms, translation 24 px + fade, 520 ms ; préparation déclenchée comme sous-séquence indépendante plus courte.</td></tr>
+        <tr><td>5</td><td><code>HomePage.tsx:245–264</code></td><td>Quatre témoignages templates apparaissent d’un bloc.</td><td>Réassurance + group entrance</td><td>Occasionnelle</td><td>Titre puis cartes dans l’ordre Femme–Homme–Femme–Homme, 600 ms, stagger 80 ms. Le hover futur reste distinct de l’entrée.</td></tr>
+        <tr><td>6</td><td><code>HomePage.tsx:286–300</code></td><td>L’accordéon natif ouvre son contenu sans transition.</td><td>État lisible</td><td>Occasionnelle</td><td>Hauteur mesurée + fade du contenu, 220 ms, chevron/plus 180 ms. Pattern « card resize » ; les autres items restent immédiatement actionnables.</td></tr>
+        <tr><td>7</td><td><code>SiteHeader.tsx:172–189</code></td><td>Le mega menu alterne entre <code>display:none</code> et visible.</td><td>Continuité spatiale</td><td>Dizaines/jour au maximum</td><td>Pattern « menu dropdown » : origine au déclencheur, scale .97 + fade, 220 ms ouverture / 150 ms fermeture. Aucun stagger long des items.</td></tr>
+      </tbody></table>
+      <div class="decision"><strong>Plus fort levier</strong>La première scène Hero → parcours rapide est la signature du lot. Elle doit être prototypée avant les autres afin de valider la sensation de masse, le chevauchement et la compatibilité avec le tracé du cœur.</div>
+    </div></section>
+
+    <section class="section" id="rejets"><div class="shell">
+      <div class="sectionHead"><div class="index">06</div><div><h2>Ce que nous choisissons de ne pas animer</h2><p class="intro">La retenue protège la lisibilité et donne plus de valeur aux rares scènes réellement chorégraphiées.</p></div></div>
+      <ul class="rejected">
+        <li><code>HomePage.tsx:182–190</code> — marqueurs, carte et centres. <strong>Rejet : données fonctionnelles à lire et manipuler ; un reveal item par item retarderait l’action.</strong> Seul le titre peut recevoir un fade doux.</li>
+        <li><code>HomePage.tsx:222–241</code> — huit cellules de réserves. <strong>Rejet : l’information opérationnelle ne doit pas bouger pour décorer.</strong> Une animation future sera réservée à une vraie mise à jour de statut.</li>
+        <li><code>HomePage.tsx:268–282</code> — cinq profils équipe. <strong>Rejet : deuxième grande grille consécutive ; un nouveau stagger rendrait la page mécanique.</strong> Titre doux seulement.</li>
+        <li><code>SiteFooter.tsx:24–56</code> — liens du footer. <strong>Rejet : navigation utilitaire fréquente et fin de page ; aucun bénéfice spatial ou narratif.</strong></li>
+        <li>Hero et portraits — zoom, parallax et suivi de curseur. <strong>Rejet : images déjà calibrées, risque de recadrage indésirable et coût GPU mobile inutile.</strong></li>
+      </ul>
+    </div></section>
+
+    <section class="section" id="technique"><div class="shell">
+      <div class="sectionHead"><div class="index">07</div><div><h2>Contrat technique et progressif</h2><p class="intro">Le système doit rester compréhensible sans bibliothèque lourde et ne jamais produire une page vide si JavaScript ou IntersectionObserver échoue.</p></div></div>
+      <table><thead><tr><th>Surface</th><th>Contrat</th><th>Preuve attendue</th></tr></thead><tbody>
+        <tr><td>Architecture</td><td>Un composant/hook de groupe applique <code>data-motion-group</code>, <code>data-motion-item</code> et <code>--motion-index</code>. Les blocs sont visibles par défaut ; une classe racine <code>motion-ready</code> autorise seulement ensuite l’état initial.</td><td>Avec JavaScript désactivé, tout le contenu est visible et utilisable.</td></tr>
+        <tr><td>Déclenchement</td><td><code>IntersectionObserver</code>, seuil cible 0,18 et <code>rootMargin: 0px 0px -10%</code>. Chaque groupe passe une seule fois à <code>data-motion-state="visible"</code>.</td><td>Pas de replay lors d’un simple scroll inverse ; aucun bloc bloqué en bas de page.</td></tr>
+        <tr><td>Tokens</td><td><code>--motion-enter-duration: 560ms</code>, <code>--motion-ui-duration: 220ms</code>, <code>--motion-stagger: 80ms</code>, <code>--motion-distance: 28px</code>, 2–4 courbes maximum.</td><td>Aucune durée narrative dispersée hors des tokens ou variables locales documentées.</td></tr>
+        <tr><td>Propriétés</td><td>Entrées éditoriales limitées à <code>transform</code> et <code>opacity</code>. Le tracé SVG utilise uniquement <code>stroke-dashoffset</code>. L’accordéon peut mesurer sa hauteur car il s’agit d’un changement d’état borné.</td><td>Aucun <code>transition: all</code>, aucun scroll-jacking, aucune animation de top/left pour les blocs.</td></tr>
+        <tr><td>Mouvement réduit</td><td>Tout est visible immédiatement ; aucun déplacement spatial ni dessin progressif. Une transition d’opacité courte de 120 ms peut rester sur les changements d’état interactifs.</td><td>Hiérarchie et état compréhensibles avec <code>prefers-reduced-motion: reduce</code>.</td></tr>
+        <tr><td>Responsive</td><td>Distance ramenée à 18 px, stagger à 55 ms, maximum 2 blocs simultanés sous 640 px. Les grilles horizontales ne doivent pas retarder les éléments hors écran.</td><td>390, 768 et 1440 px ; aucun débordement ni élément invisible après rotation/redimensionnement.</td></tr>
+        <tr><td>Performance</td><td>Pas de nouvelle dépendance pour le premier prototype. IntersectionObserver + CSS suffisent ; Motion/GSAP ne sont reconsidérés que si le prototype prouve un besoin impossible à exprimer proprement.</td><td>60 fps visé sur mobile milieu de gamme, zéro layout shift causé par les états d’entrée.</td></tr>
+      </tbody></table>
+    </div></section>
+
+    <section class="section" id="acceptation"><div class="shell">
+      <div class="sectionHead"><div class="index">08</div><div><h2>Critères d’acceptation avant promotion</h2><p class="intro">Le lot doit prouver sa qualité sans confondre une animation séduisante avec une version stable.</p></div></div>
+      <div class="score"><div><strong>0</strong><span>contenu masqué sans JavaScript</span></div><div><strong>≤ 4</strong><span>blocs animés simultanément sur desktop</span></div><div><strong>≤ 2</strong><span>blocs simultanés sur mobile</span></div><div><strong>60 fps</strong><span>cible mesurée sur scènes principales</span></div></div>
+      <table style="margin-top:18px"><thead><tr><th>Gate</th><th>Critère observable</th><th>Statut initial</th></tr></thead><tbody>
+        <tr><td>Structure</td><td>Les quatre ensembles restent cohérents ; aucune recomposition non validée n’est introduite.</td><td><span class="gate">À prototyper</span></td></tr>
+        <tr><td>Signature</td><td>Les trois premières secondes du hero forment un moment de marque sans retarder les CTA.</td><td><span class="gate">À prototyper</span></td></tr>
+        <tr><td>Narration</td><td>Chaque groupe suit un ordre compréhensible ; aucun stagger mécanique uniforme sur toute la page.</td><td><span class="gate">À prototyper</span></td></tr>
+        <tr><td>Usabilité</td><td>Carte, centres, réserves, navigation et CTA restent actionnables sans attendre la fin des mouvements.</td><td><span class="gate">À vérifier</span></td></tr>
+        <tr><td>Réduction</td><td>La variante reduced-motion conserve toute l’information, les focus et les états.</td><td><span class="gate">À vérifier</span></td></tr>
+        <tr><td>Performance</td><td>Pas de layout shift ni de jank visible ; profilage desktop et mobile documenté.</td><td><span class="gate">À mesurer</span></td></tr>
+        <tr><td>Régression</td><td>Typecheck, lint, tests, build et captures 390/768/1440 restent verts.</td><td><span class="gate">À vérifier</span></td></tr>
+        <tr><td>Promotion</td><td>Revue humaine du prototype, revue d’animation indépendante, commit/PR autorisés, puis gate distinct vers <code>upcoming</code>.</td><td><span class="gate no">Fermé</span></td></tr>
+      </tbody></table>
+      <div class="decision"><strong>Gate d’implémentation</strong>Valider d’abord la thèse, la carte des blocs et la scène prototype Hero → parcours rapide. Après cette validation, le code peut être ouvert par étapes : fondations motion, scène signature, groupes secondaires, interactions, reduced motion, profilage et revue.</div>
+    </div></section>
+  </main>
+
+  <footer class="footer"><div class="shell"><strong>Spécification locale · 28 août 2026</strong><br>Ce document définit un gate de conception. Il ne prouve aucune implémentation, publication, promotion vers upcoming/main ou mise en production.</div></footer>
+</body>
+</html>

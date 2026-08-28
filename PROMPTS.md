@@ -2,13 +2,24 @@
 
 Document exigé par le brief. Alimenté au fil du travail, pas reconstruit à la fin.
 
-Convention : **prompt adressé à l’outil** = demande effectivement reçue par Codex, Cursor ou Open Code. **extraits utiles** = fragments exacts conservés parce qu’ils éclairent une décision ou une contrainte. **synthèse paraphrasée** = résumé fidèle lorsque le texte exact n’est pas disponible ou n’apporte rien de plus. Aucun verbatim n’est fabriqué.
+Convention : **prompt adressé à l’outil** = demande effectivement reçue par Codex ou Cursor. **verbatim exact** = citation mot pour mot, réservée à une formulation qui porte clairement une décision, une contrainte, un arbitrage ou une intention. **synthèse paraphrasée** = résumé fidèle lorsque le texte source est hésitant, répétitif, ambigu ou moins lisible que son sens. Aucun verbatim n’est corrigé, recomposé ou fabriqué.
 
 ## Portée du journal
 
 `PROMPTS.md` est un journal public et sélectif des interventions IA qui produisent une décision, un artefact, une vérification ou une reprise identifiable. Il ne constitue pas une transcription exhaustive de la conversation.
 
-Les prompts peuvent être représentés par une synthèse fidèle, un ou plusieurs extraits exacts ou, exceptionnellement, le texte intégral lorsqu’il constitue un contrat de mission. Les skills et plugins ne sont mentionnés que lorsqu’ils ont influencé la méthode ou le résultat.
+Les skills et plugins ne sont mentionnés que lorsqu’ils ont influencé la méthode ou le résultat.
+
+## Sélection des verbatims
+
+Les entrées alternent entre synthèse et citation selon la valeur du texte source :
+
+- conserver un verbatim exact lorsqu’il est autonome, bien structuré et utile comme preuve d’une décision, d’une contrainte ou d’un critère ;
+- retenir un à trois extraits courts lorsqu’un message contient plusieurs formulations fortes ;
+- préférer une reformulation fidèle lorsque le message oral, fragmentaire ou redondant gagne en clarté sans perdre son intention ;
+- réserver le texte intégral aux contrats de mission dont les contraintes se perdraient par réduction.
+
+Les citations exactes restent ponctuelles : elles donnent du poids au journal sans le transformer en transcription exhaustive.
 
 ## Outils
 
@@ -16,7 +27,6 @@ Les prompts peuvent être représentés par une synthèse fidèle, un ou plusieu
 | --- | --- | --- |
 | Coordinateur | Codex (GPT-Sol) | Dépouillement, plan v0, livrables HTML, registre, revue Phase 0–1, missions |
 | Complément | Cursor (Grok 4.6) | Atelier Phase 0–1 ; reprises P1/P2 |
-| Complément | Open Code (OX Alpha) | Lane non démarrée |
 
 La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct de ce journal.
 
@@ -53,13 +63,11 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Sortie / artefacts :** `02-plan-de-travail-v0.html` et sa source Markdown ; maintien de la contrainte responsive 390–1440 px pour le produit final.
 - **Limite :** la non-priorité mobile concerne les documents de lecture, pas l’interface Lafiya à construire.
 
-### 2026-08-23 — Codex — coordination de Codex, Cursor et Open Code
+### 2026-08-23 — Codex — coordination de Codex et Cursor
 
 - **Outil :** Codex / GPT-Sol
-- **Objectif :** établir une coordination traçable entre l’environnement parent et les deux outils complémentaires, avec un support de transmission commun.
+- **Objectif :** établir une coordination traçable entre l’environnement parent et l’outil complémentaire retenu, avec un support de transmission commun.
 - **Extraits utiles :**
-
-  > « conjointement entre trois outils différents »
 
   > « Codex [...] l'environnement parent principal »
 
@@ -314,7 +322,7 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 ### 2026-08-24 — Codex — intégration du socle et lot Domaine et données
 
 - **Outil :** Codex / GPT-Sol
-- **Objectif :** intégrer le socle accepté dans `dev`, puis produire et implémenter directement le contrat du lot 02 sans délégation à Cursor ou Open Code.
+- **Objectif :** intégrer le socle accepté dans `dev`, puis produire et implémenter directement le contrat du lot 02 dans Codex, sans délégation complémentaire.
 - **Prompt adressé à Codex :** synthèse paraphrasée. Fusionner la branche du socle par pull request autorisée ; créer depuis `dev` une branche dédiée au domaine et aux données ; fournir une spécification HTML détaillée ; réaliser ensuite l’implémentation dans l’environnement Codex.
 - **Skills utilisés :** `orchestrate-work` pour séparer intégration, spécification, implémentation et revue ; `sentry-skills:pr-writer` pour la PR `#2` ; `sentry-skills:create-branch` pour `feat/domain-data-foundation` ; `sentry-skills:code-review` pour durcir les dates, les objets stricts et les tests négatifs avant acceptation.
 - **Sortie / artefacts :** PR `#2` fusionnée dans `dev` ; spécification locale `16-specification-domaine-donnees-lot-02.html` ; schémas Zod, catalogue typé, 8 centres fictifs, 8 réserves, 6 FAQ, mentions centralisées et 15 tests ; revue locale `17-revue-codex-domaine-donnees-lot-02.html`.
@@ -389,3 +397,20 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Sortie / artefacts :** homepage en onze sections, routes éditoriales, header responsive avec mega menus, carte Leaflet, quatre lieux ANTS sourcés, médias sélectionnés et outil de calibration chargé uniquement en développement.
 - **Vérifications :** type-check, lint, 17 tests et build de production sous Node 24.15.0 ; validation structurée des provenances et données du catalogue.
 - **Limite :** DialKit reste temporairement installé pour les prochaines calibrations mais ses valeurs validées sont déjà permanentes dans le CSS. Aucun merge vers `dev`, promotion, déploiement ou publication stable n’est inclus dans cette étape.
+
+### 2026-08-28 — Codex + Magnific — exploration vidéo de la section d’éligibilité
+
+- **Outil :** Codex / GPT-Sol + Magnific MCP.
+- **Objectif :** remplacer à terme le portrait statique de « Puis-je donner ? » par une scène courte où la même femme s’approche en plan continu, lève le pouce et sourit, tout en contrôlant la fluidité et la dépense de crédits avant intégration.
+- **Extraits utiles :**
+
+  > « Magnific MCP, Kling 3.0, 1080p, Sound/Music OFF »
+
+  > « Je suis prêt à dépenser des crédits, mais pas énormément quand même. »
+
+- **Prompt adressé à Codex :** synthèse paraphrasée. Auditer le cadre actuel et le compte Magnific ; recommander une durée ; préparer un start frame plus éloigné qui conserve l’identité ; produire un seul clip silencieux où la femme avance jusqu’à un plan moyen, se stabilise, lève le pouce et sourit ; contrôler le résultat avant toute nouvelle génération ou intégration.
+- **Skill utilisé :** `balise-motion-graphic` pour définir le beat sheet, la durée, le vocabulaire de caméra, le contrôle des assets et les gates de qualité ; `orchestrate-work` pour isoler l’audit sans coût, l’image préparatoire et la génération vidéo payante.
+- **Sorties / artefacts :** `27-exploration-video-eligibilite-kling-lot-04.html` ; start frame carré Nano Banana Pro ; master Kling 3.0 de 6,04 s ; planche de dix-huit images dans `visual-explorations/lot-04-video-eligibility/`.
+- **Coût observé :** 75 crédits pour le start frame et 540 pour le clip, soit 615 crédits au total ; solde restant observé après génération : 41 066 crédits.
+- **Vérifications :** master H.264 de 1440 × 1440, 24 i/s, 145 images et sans piste audio ; décodage complet réussi ; identité, progression, main et pouce inspectés sur des planches temporelles.
+- **Arbitrage et intégration :** le sourire final, plus franc que demandé, a été accepté. La section « Puis-je donner ? » utilise des dérivés web MP4/WebM de 720 × 720, sans audio, lus une seule fois à l’entrée dans le viewport ; le poster reste statique en cas de réduction des mouvements ou d’économie de données. Le master de 11,6 Mo demeure hors du bundle public.

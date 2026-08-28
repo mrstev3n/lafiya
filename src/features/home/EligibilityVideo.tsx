@@ -65,23 +65,25 @@ export function EligibilityVideo() {
           const video = videoRef.current
           if (!video) return
 
+          const transitionHadLeadIn = transitionStartedRef.current
+          transitionStartedRef.current = true
           setTransitioning(true)
           restartTimerRef.current = window.setTimeout(() => {
             video.currentTime = 0
             void video.play().catch(() => {
               // Le dernier état reste visible si la reprise automatique est refusée.
             })
-          }, 350)
+          }, transitionHadLeadIn ? 140 : 400)
           clearTransitionTimerRef.current = window.setTimeout(() => {
             setTransitioning(false)
             transitionStartedRef.current = false
-          }, 800)
+          }, transitionHadLeadIn ? 1050 : 1450)
         }}
         onTimeUpdate={(event) => {
           const video = event.currentTarget
           if (
             Number.isFinite(video.duration)
-            && video.duration - video.currentTime <= 0.85
+            && video.duration - video.currentTime <= 0.4
             && !transitionStartedRef.current
           ) {
             transitionStartedRef.current = true

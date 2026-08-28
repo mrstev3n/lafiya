@@ -5,7 +5,7 @@
 .transitionStripes {
   backdrop-filter: blur(13px) saturate(135%);
   background: rgb(255 255 255 / 0.16);
-  inset: -8% -35%;
+  inset: -75% -145%;
   -webkit-mask-image: repeating-linear-gradient(
     132deg,
     #000 0 9%,
@@ -21,32 +21,36 @@
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  transform: translate3d(-72%, 0, 0);
+  transform: translate3d(-34%, 0, 0);
   will-change: opacity, transform;
   z-index: 1;
 }
 
 .transitionStripesActive {
-  animation: glass-stripes-sweep 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: glass-stripes-sweep 1.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes glass-stripes-sweep {
   0% {
     opacity: 0;
-    transform: translate3d(-72%, 0, 0);
+    transform: translate3d(-34%, 0, 0);
   }
 
-  24% {
-    opacity: 0.82;
-  }
-
-  62% {
+  26% {
     opacity: 0.9;
+  }
+
+  48% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 0.88;
   }
 
   100% {
     opacity: 0;
-    transform: translate3d(72%, 0, 0);
+    transform: translate3d(34%, 0, 0);
   }
 }
 

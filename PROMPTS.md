@@ -414,3 +414,13 @@ La coordination opérationnelle est dans `REGISTRE-COLLABORATION.md`, distinct d
 - **Coût observé :** 75 crédits pour le start frame et 540 pour le clip, soit 615 crédits au total ; solde restant observé après génération : 41 066 crédits.
 - **Vérifications :** master H.264 de 1440 × 1440, 24 i/s, 145 images et sans piste audio ; décodage complet réussi ; identité, progression, main et pouce inspectés sur des planches temporelles.
 - **Arbitrage et intégration :** le sourire final, plus franc que demandé, a été accepté. La section « Puis-je donner ? » utilise des dérivés web MP4/WebM de 720 × 720, sans audio, lus une seule fois à l’entrée dans le viewport ; le poster reste statique en cas de réduction des mouvements ou d’économie de données. Le master de 11,6 Mo demeure hors du bundle public.
+
+### 2026-08-29 — Codex — consolidation de la homepage et reprise sélective du test d’éligibilité
+
+- **Outil :** Codex / GPT-Sol, avec audit indépendant de la lane Cursor.
+- **Objectif :** intégrer la homepage stabilisée dans `dev`, préserver les sauvegardes existantes, puis reprendre uniquement les éléments fiables du prototype d’éligibilité sans restaurer ses régressions de carte ou de contenu.
+- **Prompt adressé à Codex :** synthèse paraphrasée. Fusionner et nettoyer les travaux pour repartir d’un socle propre ; confronter le résultat Cursor aux décisions produit déjà validées ; conserver la carte statique et rendre le test immédiatement visible, crédible, positif et accessible.
+- **Skills utilisés :** `orchestrate-work` pour borner la récupération Git et séquencer les preuves ; `balise-trustworthy-flows` et `balise-ux-writing` pour distinguer orientation, confirmation médicale et voies de continuation ; `mobile-responsiveness` et `better-accessibility` pour contrôler le premier écran, les focus et les champs ; navigateur interne pour vérifier les parcours rendus.
+- **Sortie / artefacts :** PR `#5` fusionnée dans `dev` au commit `baf9638` ; branche `feat/eligibility-flow-v2` ; moteur de règles pur, parcours en trois étapes, résultat mineur positif, rappel calendrier et transfert explicite de ville vers la carte OpenStreetMap statique.
+- **Vérifications :** type-check, lint, 47 tests et build de production réussis sous Node 24.15.0 ; parcours mineur et complet vérifiés dans le navigateur ; question et action visibles au premier écran à 390 × 844, 768 × 900 et 1440 × 900 ; aucune réintroduction de Leaflet ni erreur console.
+- **Limite :** la branche d’éligibilité n’est pas encore fusionnée dans `dev` au moment de cette entrée. Les stashes de sauvegarde restent intacts jusqu’à la preuve finale de récupération et aucun déploiement n’est inclus.

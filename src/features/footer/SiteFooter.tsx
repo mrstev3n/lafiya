@@ -2,9 +2,15 @@ import { HeartLine } from '../../components/brand/HeartLine.tsx'
 import { ActionLink } from '../../components/ui/ActionLink.tsx'
 import styles from './SiteFooter.module.css'
 
-type SiteFooterProps = { withCta?: boolean }
+type SiteFooterProps = {
+  projectNote?: string
+  withCta?: boolean
+}
 
-export function SiteFooter({ withCta = true }: SiteFooterProps) {
+export function SiteFooter({
+  projectNote = '© 2026 Lafiya · Projet fictif du Figma to Code Challenge',
+  withCta = true,
+}: SiteFooterProps) {
   return (
     <section className={styles.section}>
       {withCta ? (
@@ -47,7 +53,7 @@ export function SiteFooter({ withCta = true }: SiteFooterProps) {
           </div>
         </div>
         <div className={`${styles.shell} ${styles.legal}`}>
-          <p>© 2026 Lafiya · Projet fictif du Figma to Code Challenge</p>
+          <p>{projectNote}</p>
           <nav aria-label="Informations légales">
             <a href="/mentions-legales">Mentions légales</a>
             <a href="/confidentialite">Confidentialité</a>

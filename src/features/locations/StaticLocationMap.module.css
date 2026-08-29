@@ -1,0 +1,135 @@
+.viewport {
+  background: #f2eee7;
+  height: 100%;
+  isolation: isolate;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.mapStage,
+.markerStage {
+  position: absolute;
+  transition: transform 620ms var(--motion-ease-section), transform-origin 620ms var(--motion-ease-section);
+}
+
+.mapStage { z-index: 1; }
+.markerStage { pointer-events: none; z-index: 4; }
+
+.mapImage { height: 100%; object-fit: cover; width: 100%; }
+
+.marker {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  height: 2.35rem;
+  left: var(--marker-x);
+  padding: 0;
+  position: absolute;
+  top: var(--marker-y);
+  transform: translate(-50%, -100%);
+  transition: filter 240ms ease, transform 240ms ease;
+  width: 2.35rem;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.marker span {
+  background: var(--color-papaye);
+  border: 3px solid white;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 0.45rem 1.2rem rgba(0, 14, 32, 0.2);
+  display: block;
+  height: 100%;
+  position: relative;
+  transform: rotate(-45deg);
+  width: 100%;
+}
+
+.marker span::after {
+  background: white;
+  border-radius: 50%;
+  content: '';
+  height: 0.52rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.52rem;
+}
+
+.marker[aria-pressed='true'] {
+  filter: drop-shadow(0 0 1rem rgba(239, 90, 24, 0.5));
+  transform: translate(-50%, -100%) scale(1.38);
+}
+
+.marker[aria-pressed='true']::before {
+  animation: markerPulse 2.4s ease-out infinite;
+  border: 1px solid rgba(239, 90, 24, 0.46);
+  border-radius: 50%;
+  content: '';
+  inset: -0.8rem;
+  position: absolute;
+}
+
+.marker:focus-visible { outline: 3px solid var(--color-nuit); outline-offset: 0.4rem; }
+
+.activeLabel {
+  background: rgba(247, 244, 242, 0.94);
+  box-shadow: 0 0.8rem 2rem rgba(0, 14, 32, 0.12);
+  left: var(--map-focus-x);
+  max-width: 15rem;
+  padding: 0.85rem 1rem;
+  position: absolute;
+  top: calc(var(--map-focus-y) + 2.1rem);
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.activeLabel strong,
+.activeLabel span { display: block; }
+.activeLabel strong { color: var(--color-papaye-sombre); font-family: var(--font-display); font-size: 1rem; line-height: 1.1; }
+.activeLabel span { color: var(--color-texte-doux); font-size: 0.68rem; line-height: 1.35; margin-top: 0.35rem; }
+
+.fadeLeft,
+.fadeRadial,
+.fadeEdges { inset: 0; pointer-events: none; position: absolute; z-index: 3; }
+.fadeLeft { background: linear-gradient(90deg, var(--map-fade-color) 0%, transparent var(--map-fade-left-end)); }
+.fadeRadial {
+  background: radial-gradient(
+    ellipse at var(--map-radial-x) var(--map-radial-y),
+    transparent 0%,
+    transparent var(--map-radial-opening),
+    var(--map-radial-color) var(--map-radial-softness),
+    var(--map-radial-color) 100%
+  );
+}
+.fadeEdges { background: linear-gradient(180deg, var(--color-papier) 0%, transparent var(--map-fade-vertical-end), transparent calc(100% - var(--map-fade-vertical-end)), var(--color-papier) 100%), linear-gradient(270deg, rgba(247, 244, 242, 0.7) 0%, transparent var(--map-fade-right-end)); }
+
+.attribution {
+  bottom: 0.55rem;
+  color: rgba(0, 14, 32, 0.68);
+  font-size: 0.62rem;
+  position: absolute;
+  right: 0.7rem;
+  text-decoration: none;
+  z-index: 6;
+}
+
+@keyframes markerPulse {
+  0% { opacity: 0.8; transform: scale(0.72); }
+  70%, 100% { opacity: 0; transform: scale(1.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mapStage,
+  .markerStage,
+  .marker { transition: none; }
+  .marker[aria-pressed='true']::before { animation: none; }
+}
+
+@media (max-width: 840px) {
+  .viewport { height: auto; min-height: 28rem; }
+  .fadeLeft { background: linear-gradient(90deg, var(--color-papier), transparent 14%); }
+  .activeLabel { max-width: 12rem; }
+}

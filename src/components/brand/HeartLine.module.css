@@ -1,28 +1,61 @@
 .line {
   color: var(--color-papaye);
   display: block;
-  height: 11rem;
   pointer-events: none;
   width: 100%;
+}
+
+.line svg {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.mobile {
+  display: none !important;
 }
 
 .line path {
   fill: none;
   stroke: currentColor;
-  stroke-dasharray: 1500;
+  stroke-dasharray: 100;
   stroke-dashoffset: 0;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 3;
+  stroke-width: var(--signature-stroke, 3);
+  vector-effect: non-scaling-stroke;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .line path {
-    animation: draw-heart-line 1.8s ease-out both;
+  .line[data-variant='heart'] path {
+    animation: draw-heart-line var(--heart-line-duration, 1.8s) cubic-bezier(0.16, 1, 0.3, 1) var(--heart-line-delay, 620ms) both;
+  }
+
+  :global([data-signature-group][data-motion-ready='true']) .line[data-variant='wave'] path {
+    stroke-dashoffset: 100;
+  }
+
+  :global([data-signature-group][data-motion-state='visible']) .line[data-variant='wave'] path {
+    animation: draw-heart-line var(--heart-line-duration, 1.35s) cubic-bezier(0.16, 1, 0.3, 1) var(--heart-line-delay, 360ms) both;
   }
 }
 
 @keyframes draw-heart-line {
-  from { stroke-dashoffset: 1500; }
+  from { stroke-dashoffset: 100; }
   to { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 640px) {
+  .line path {
+    stroke-width: var(--signature-stroke-mobile, 2.5);
+  }
+
+  .desktop {
+    display: none !important;
+  }
+
+  .mobile {
+    display: block !important;
+  }
 }

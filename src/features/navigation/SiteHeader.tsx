@@ -8,6 +8,7 @@ import styles from './SiteHeader.module.css'
 export function SiteHeader() {
   const { pathname } = useLocation()
   const [openGroup, setOpenGroup] = useState<string | null>(null)
+  const [navEngaged, setNavEngaged] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [pinned, setPinned] = useState(false)
   const [utilityVisible, setUtilityVisible] = useState(true)
@@ -41,10 +42,16 @@ export function SiteHeader() {
 
   useEffect(() => {
     function handlePointerDown(event: PointerEvent) {
-      if (headerRef.current && !headerRef.current.contains(event.target as Node)) setOpenGroup(null)
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setOpenGroup(null)
+        setNavEngaged(false)
+      }
     }
     function handleEscape(event: KeyboardEvent) {
-      if (event.key === 'Escape') setOpenGroup(null)
+      if (event.key === 'Escape') {
+        setOpenGroup(null)
+        setNavEngaged(false)
+      }
     }
     document.addEventListener('pointerdown', handlePointerDown)
     document.addEventListener('keydown', handleEscape)
@@ -88,11 +95,29 @@ export function SiteHeader() {
     closeTimer.current = window.setTimeout(() => setOpenGroup(null), 120)
   }
 
+  function engageNavigation() {
+    cancelScheduledClose()
+    setNavEngaged(true)
+  }
+
+  function openNavigationGroup(groupId: string) {
+    engageNavigation()
+    setOpenGroup(groupId)
+  }
+
+  function closeNavigationGroup() {
+    cancelScheduledClose()
+    setOpenGroup(null)
+  }
+
   return (
     <header
       className={[styles.header, pathname !== '/' ? styles.onInterior : ''].filter(Boolean).join(' ')}
-      onMouseEnter={cancelScheduledClose}
-      onMouseLeave={scheduleClose}
+      onPointerEnter={cancelScheduledClose}
+      onPointerLeave={() => {
+        setNavEngaged(false)
+        scheduleClose()
+      }}
       ref={headerRef}
     >
       <div
@@ -114,9 +139,9 @@ export function SiteHeader() {
         styles.mainBarWrap,
         pinned ? styles.pinned : '',
         pinned && utilityVisible ? styles.withUtility : '',
-        openGroup ? styles.menuActive : '',
+        navEngaged || openGroup ? styles.menuActive : '',
       ].filter(Boolean).join(' ')}>
-        <div className={styles.mainBar}>
+        <div className={styles.mainBar} onPointerEnter={engageNavigation}>
           <a className={styles.brand} href="/" aria-label="Lafiya, retour à l’accueil">
             Lafiya<span>.</span>
           </a>
@@ -128,15 +153,15 @@ export function SiteHeader() {
                 className={styles.navDisclosure}
                 key={group.id}
                 onClick={() => setOpenGroup(openGroup === group.id ? null : group.id)}
-                onFocus={() => setOpenGroup(group.id)}
-                onMouseEnter={() => setOpenGroup(group.id)}
+                onFocus={() => openNavigationGroup(group.id)}
+                onPointerEnter={() => openNavigationGroup(group.id)}
                 type="button"
               >
                 {group.label}<Icon name="chevron" width="1rem" />
               </button>
             ))}
-            <a href="/ou-donner">Où donner</a>
-            <a href="/temoignages">Témoignages</a>
+            <a href="/ou-donner" onPointerEnter={closeNavigationGroup}>Où donner</a>
+            <a href="/temoignages" onPointerEnter={closeNavigationGroup}>Témoignages</a>
             {navigationGroups.slice(1).map((group) => (
               <button
                 aria-controls={`menu-${group.id}`}
@@ -144,8 +169,8 @@ export function SiteHeader() {
                 className={styles.navDisclosure}
                 key={group.id}
                 onClick={() => setOpenGroup(openGroup === group.id ? null : group.id)}
-                onFocus={() => setOpenGroup(group.id)}
-                onMouseEnter={() => setOpenGroup(group.id)}
+                onFocus={() => openNavigationGroup(group.id)}
+                onPointerEnter={() => openNavigationGroup(group.id)}
                 type="button"
               >
                 {group.label}<Icon name="chevron" width="1rem" />
@@ -175,8 +200,8 @@ export function SiteHeader() {
           hidden={openGroup !== group.id}
           id={`menu-${group.id}`}
           key={group.id}
-          onMouseLeave={scheduleClose}
-          onMouseEnter={() => setOpenGroup(group.id)}
+          onPointerLeave={scheduleClose}
+          onPointerEnter={() => openNavigationGroup(group.id)}
         >
           <div className={styles.megaIntro}><span>Explorer</span><p>{group.description}</p></div>
           <div className={styles.megaItems}>

@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { EligibilityPage } from '../features/eligibility/EligibilityPage.tsx'
 import { HomePage } from '../features/home/HomePage.tsx'
 import { SiteHeader } from '../features/navigation/SiteHeader.tsx'
 import {
   ContentPage,
   DonationLocationsPage,
-  EligibilityPage,
   FaqPage,
   LegalPage,
   NeedsPage,

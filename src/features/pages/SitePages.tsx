@@ -128,20 +128,6 @@ export function FaqPage() {
   )
 }
 
-export function EligibilityPage() {
-  return (
-    <main id="contenu" className={styles.page}>
-      <header className={styles.hero}><div className={styles.shell}><p>Test d’éligibilité</p><h1>Une réponse utile, quelle que soit votre situation.</h1><span>Le parcours explique le résultat, valorise votre démarche et vous indique quand ou comment poursuivre.</span></div></header>
-      <section className={`${styles.shell} ${styles.cards}`}>
-        <article><h2>Vous pouvez probablement donner</h2><p>Nous vous indiquons le prochain point de don. L’entretien médical sur place reste la confirmation finale.</p></article>
-        <article><h2>Il faut patienter</h2><p>Nous expliquons précisément le délai et calculons la date à laquelle vous pourrez réessayer.</p></article>
-        <article><h2>Ce n’est pas possible aujourd’hui</h2><p>Votre intention compte. Vous recevez une explication claire et d’autres façons de soutenir le don volontaire.</p></article>
-      </section>
-      <SiteFooter />
-    </main>
-  )
-}
-
 const legalContent = {
   mentions: { title: 'Mentions légales', sections: [
     ['Nature du projet', 'Lafiya est un projet fictif réalisé dans le cadre du Figma to Code Challenge. Il ne constitue pas un service officiel de santé.'],

@@ -1,15 +1,16 @@
 import { useMemo, useState, type ReactNode } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Icon } from '../../components/ui/Icon.tsx'
 import { centres } from '../../data/catalogue.ts'
+import { CITY_LABELS, parseCityId } from '../../domain/location.ts'
 import type { DonationCentre } from '../../domain/schemas.ts'
+import { readSessionCity, writeSessionCity } from './cityPreference.ts'
 import { StaticLocationMap } from './StaticLocationMap.tsx'
 import styles from './LocationsExplorer.module.css'
 import { defaultLocationsTuning } from './locationsTuning.ts'
 
-const cityLabels: Record<DonationCentre['cityId'], string> = {
-  'abomey-calavi': 'Abomey-Calavi',
-  cotonou: 'Cotonou',
-  'porto-novo': 'Porto-Novo',
+function initialCity(searchParams: URLSearchParams): 'all' | DonationCentre['cityId'] {
+  return parseCityId(searchParams.get('ville')) ?? readSessionCity() ?? 'all'
 }
 
 type LocationsExplorerProps = {
@@ -18,9 +19,18 @@ type LocationsExplorerProps = {
 }
 
 export function LocationsExplorer({ heading, intro }: LocationsExplorerProps) {
-  const [selectedCity, setSelectedCity] = useState<'all' | DonationCentre['cityId']>('all')
-  const [selectedCentreId, setSelectedCentreId] = useState(centres[0].id)
-  const [mapView, setMapView] = useState<'overview' | 'centre'>('overview')
+  const [searchParams] = useSearchParams()
+  const initialSelection = initialCity(searchParams)
+  const [selectedCity, setSelectedCity] = useState<'all' | DonationCentre['cityId']>(initialSelection)
+  const [selectedCentreId, setSelectedCentreId] = useState(() => {
+    const matchingCentres = initialSelection === 'all'
+      ? centres
+      : centres.filter((centre) => centre.cityId === initialSelection)
+    return matchingCentres[0].id
+  })
+  const [mapView, setMapView] = useState<'overview' | 'centre'>(
+    initialSelection === 'all' ? 'overview' : 'centre',
+  )
   const filteredCentres = useMemo(
     () => selectedCity === 'all' ? centres : centres.filter((centre) => centre.cityId === selectedCity),
     [selectedCity],
@@ -29,6 +39,7 @@ export function LocationsExplorer({ heading, intro }: LocationsExplorerProps) {
 
   function selectCity(city: 'all' | DonationCentre['cityId']) {
     setSelectedCity(city)
+    writeSessionCity(city === 'all' ? null : city)
     const nextCentres = city === 'all' ? centres : centres.filter((centre) => centre.cityId === city)
     setSelectedCentreId(nextCentres[0].id)
     setMapView(city === 'all' ? 'overview' : 'centre')
@@ -50,7 +61,7 @@ export function LocationsExplorer({ heading, intro }: LocationsExplorerProps) {
             value={selectedCity}
           >
             <option value="all">Grand Nokoué</option>
-            {Object.entries(cityLabels).map(([value, label]) => (
+            {Object.entries(CITY_LABELS).map(([value, label]) => (
               <option key={value} value={value}>{label}</option>
             ))}
           </select>
@@ -69,7 +80,7 @@ export function LocationsExplorer({ heading, intro }: LocationsExplorerProps) {
               <span className={styles.centreCopy}>
                 <strong>{centre.displayName}</strong>
                 <span>{centre.address}</span>
-                <small>{cityLabels[centre.cityId]}</small>
+                <small>{CITY_LABELS[centre.cityId]}</small>
               </span>
               <Icon name="arrow" />
             </button>
